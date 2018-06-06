@@ -1,0 +1,143 @@
+CREATE DATABASE Baseball;
+
+CREATE TABLE baseball.team
+(
+   `ID`        int(5) NOT NULL AUTO_INCREMENT,
+   `NAME`      varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+   `WIN`       int(2) NOT NULL,
+   `DRAW`      int(2) NOT NULL,
+   `DEFEAT`    int(2) NOT NULL,
+   `E`         int(2) NOT NULL,
+   PRIMARY KEY(`ID`)
+)
+ENGINE InnoDB
+COLLATE 'utf8_bin'
+ROW_FORMAT DEFAULT;
+
+CREATE TABLE baseball.game
+(
+   `ID`         int(6) NOT NULL AUTO_INCREMENT,
+   `HOME_ID`    int(5) NOT NULL,
+   `AWAY_ID`    int(5) NOT NULL,
+   `DATE`       date NOT NULL,
+   CONSTRAINT game_ibfk_2 FOREIGN KEY(`AWAY_ID`)
+   REFERENCES team(`ID`) ON UPDATE CASCADE ON DELETE CASCADE,
+   CONSTRAINT game_ibfk_1 FOREIGN KEY(`HOME_ID`)
+   REFERENCES team(`ID`) ON UPDATE CASCADE ON DELETE CASCADE,
+   PRIMARY KEY(`ID`)
+)
+ENGINE InnoDB
+COLLATE 'utf8_bin'
+ROW_FORMAT DEFAULT;
+
+CREATE TABLE baseball.hitter
+(
+   `PLAYER_ID`           int(2) NOT NULL AUTO_INCREMENT,
+   `NAME`                varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+   `TEAM_ID`             int(10) NOT NULL,
+   `PLATE_APPEARANCE`    int(5) NOT NULL,
+   `AT_BAT`              int(5) NOT NULL,
+   `DOUBLE`              int(2) NOT NULL,
+   `TRIPLE`              int(2) NOT NULL,
+   `STOLEN_BASE`         int(2) NOT NULL,
+   `CAUGHT_STEALING`     int(2) NOT NULL,
+   `SACRIFICE_HIT`       int(2) NOT NULL,
+   `SACRIFICE_FLY`       int(2) NOT NULL,
+   `SALARY`              int(10) NOT NULL,
+   CONSTRAINT hitter_ibfk_1 FOREIGN KEY(`TEAM_ID`)
+   REFERENCES team(`ID`) ON UPDATE CASCADE ON DELETE CASCADE,
+   PRIMARY KEY(`PLAYER_ID`)
+)
+ENGINE InnoDB
+COLLATE 'utf8_bin'
+ROW_FORMAT DEFAULT;
+
+CREATE TABLE baseball.hitter_lineup
+(
+   `GAME_ID`            int(6) NOT NULL,
+   `PLAYER_ID`          int(3) NOT NULL,
+   `IS_HOME`            tinyint(1) NOT NULL,
+   `POSITION`           int(2) NOT NULL,
+   `AT_BAT`             int(2) NOT NULL,
+   `HIT`                int(2) NOT NULL,
+   `HOME_RUN`           int(2) NOT NULL,
+   `RUN_BATTED_IN`      int(2) NOT NULL,
+   `RUN_SCORE`          int(2) NOT NULL,
+   `WALK`               int(2) NOT NULL,
+   `STRIKE_OUT`         int(2) NOT NULL,
+   `HIT_BY_PITCHING`    int(2) NOT NULL,
+   `BATTING_AVERAGE`    float(4, 3) NOT NULL,
+   PRIMARY KEY(`PLAYER_ID`, `GAME_ID`),
+   CONSTRAINT hitter_lineup_ibfk_1 FOREIGN KEY(`PLAYER_ID`)
+   REFERENCES hitter(`PLAYER_ID`) ON UPDATE CASCADE ON DELETE CASCADE,
+   CONSTRAINT hitter_lineup_ibfk_2 FOREIGN KEY(`GAME_ID`)
+   REFERENCES game(`ID`) ON UPDATE CASCADE ON DELETE CASCADE
+)
+ENGINE InnoDB
+COLLATE 'utf8_bin'
+ROW_FORMAT DEFAULT;
+
+CREATE TABLE baseball.pitcher
+(
+   `PLAYER_ID`             int(5) NOT NULL AUTO_INCREMENT,
+   `NAME`                  varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+   `TEAM_ID`               int(6) NOT NULL,
+   `NUMBER_OF_PITCHING`    int(4) NOT NULL,
+   `HIT`                   int(2) NOT NULL,
+   `DOUBLE`                int(2) NOT NULL,
+   `TRIPLE`                int(2) NOT NULL,
+   `SALARY`                int(10) NOT NULL,
+   PRIMARY KEY(`PLAYER_ID`),
+   CONSTRAINT pitcher_ibfk_1 FOREIGN KEY(`TEAM_ID`)
+   REFERENCES team(`ID`) ON UPDATE CASCADE ON DELETE CASCADE
+)
+ENGINE InnoDB
+COLLATE 'utf8_bin'
+ROW_FORMAT DEFAULT;
+
+CREATE TABLE baseball.pitcher_lineup
+(
+   `GAME_ID`               int(6) NOT NULL AUTO_INCREMENT,
+   `IS_HOME`               tinyint(1) NOT NULL,
+   `PLAYER_ID`             int(5) NOT NULL,
+   `WIN_LOSE_SAVE`         ENUM('W','L','S','H')
+                           CHARACTER SET utf8
+                           COLLATE utf8_bin
+                           NULL,
+   `INNING_PITCHED`        float(2, 1) NOT NULL,
+   `BATS`                  int(2) NOT NULL,
+   `EARNED_HIT`            int(2) NOT NULL,
+   `ALLOWED_RUN`           int(2) NOT NULL,
+   `EARNED_RUN`            int(2) NOT NULL,
+   `WALK`                  int(2) NOT NULL,
+   `STRIKE_OUT`            int(2) NOT NULL,
+   `EARNED_HOME_RUN`       int(2) NOT NULL,
+   `EARNED_RUN_AVERAGE`    float(6, 3) NOT NULL,
+   CONSTRAINT pitcher_lineup_ibfk_1 FOREIGN KEY(`PLAYER_ID`)
+   REFERENCES pitcher(`PLAYER_ID`) ON UPDATE CASCADE ON DELETE CASCADE,
+   CONSTRAINT pitcher_lineup_ibfk_2 FOREIGN KEY(`GAME_ID`)
+   REFERENCES game(`ID`) ON UPDATE CASCADE ON DELETE CASCADE,
+   PRIMARY KEY(`PLAYER_ID`, `GAME_ID`)
+)
+ENGINE InnoDB
+COLLATE 'utf8_bin'
+ROW_FORMAT DEFAULT;
+
+CREATE TABLE baseball.pithit_table
+(
+   `PITHIT_ID`           int(2) NOT NULL AUTO_INCREMENT,
+   `PITCHER_ID`          int(5) NOT NULL,
+   `HITTER_ID`           int(2) NOT NULL,
+   `PLATE_APPEARANCE`    int(2) NOT NULL,
+   `AT_BAT`              int(2) NOT NULL,
+   `HIT`                 int(2) NOT NULL,
+   `BATTING_AVERAGE`     float(2, 1) NOT NULL,
+   PRIMARY KEY(`PITHIT_ID`),
+   CONSTRAINT pithit_table_ibfk_1 FOREIGN KEY(`PITCHER_ID`)
+   REFERENCES pitcher(`PLAYER_ID`) ON UPDATE CASCADE ON DELETE CASCADE,
+   CONSTRAINT pithit_table_ibfk_2 FOREIGN KEY(`HITTER_ID`)
+   REFERENCES hitter(`PLAYER_ID`) ON UPDATE CASCADE ON DELETE CASCADE
+)
+ENGINE InnoDB
+COLLATE 'utf8_bin'
+ROW_FORMAT DEFAULT;
