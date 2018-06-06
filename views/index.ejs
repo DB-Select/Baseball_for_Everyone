@@ -1,11 +1,98 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <div id="config"></div>
+    <link rel="stylesheet" href="/stylesheets/style.css"> 
+    <link rel="stylesheet" href="/css/bootstrap.min.css"> 
+    <script src="/js/jquery.min.js"></script> 
+    <script src="/js/bootstrap.min.js"></script>
+    <style>
+      /*section2*/
+      #section2{
+        margin-top: 30px;
+      }
+      #section2 ul{
+        list-style:none;
+        margin:0;
+        padding:0;
+      }
+      #section2 ul li{
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+        border : 0;
+        float: left;
+        border: 1px solid;
+        width: 10%;
+      }
+      #section2 ul li img{
+        width: 100%;
+      }
+
+      /*section3*/
+      #section3{
+        margin-top: 30px;
+      }
+      #section3 div{
+        padding: 20px;
+      }
+      #section3 div img{
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <header>
+      <%- include('include/header-admin.ejs') %>
+    </header>
+    <hr>
+    <!-- Main Content -->
+    <div class="container">
+      <div id="section2" class="row">
+        <div class="col-sm-12 border">
+          <ul>
+            <li><img src="images/team_logo/DOOSAN.png"></li>
+            <li><img src="images/team_logo/HANHWA.png"></li>
+            <li><img src="images/team_logo/KIA.png"></li>
+            <li><img src="images/team_logo/KT.png"></li>
+            <li><img src="images/team_logo/LG.png"></li>
+            <li><img src="images/team_logo/LOTTE.png"></li>
+            <li><img src="images/team_logo/NC.png"></li>
+            <li><img src="images/team_logo/NEXEN.png"></li>
+            <li><img src="images/team_logo/SAMSUNG.jpg"></li>
+            <li><img src="images/team_logo/SK.png"></li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="section3" class="row text-center">
+        <div class="col-sm-4 border">
+          <a href="agent-1.html">
+            <img src="images/3views/agent.png" href="agent-1.html">
+          </a>
+        </div>
+        <div class="col-sm-4 border">
+          <a href="crowd-1.html">
+            <img src="images/3views/crowd.png">
+          </a>
+        </div>
+        <div class="col-sm-4 border">
+          <a href="player-1.html">
+            <img src="images/3views/player.png">
+          </a>
+        </div>
+      </div>
+      <div class="row" style="margin: 30px 0px;">
+        <div class="col-sm-12 text-center">
+          <a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">선택완료</a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <header>
+      <%- include('include/footer.ejs') %>
+    </header>
+  <script>
+  </script>
   </body>
+
 </html>

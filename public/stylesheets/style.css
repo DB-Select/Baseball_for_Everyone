@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+table thead th{
+  text-align: center;
+}
+
+.fa-sort.active{
+  color:blue;
+}
