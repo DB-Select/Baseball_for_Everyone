@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var agent2Router = require('./routes/agent-2');
+var player1Router = require('./routes/player-1');
 
 var app = express();
 
@@ -21,6 +23,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/agent-2',agent2Router);
+app.use('/player-1',player1Router);
+
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS 
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery 
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); 
