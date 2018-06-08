@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var agent2Router = require('./routes/agent-2');
 var player1Router = require('./routes/player-1');
 var selectTeamRouter = require('./routes/include/select-team');
+var crowd1Router = require('./routes/crowd-1');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/agent-2', agent2Router);
 app.use('/player-1', player1Router);
+app.use('/crowd-1', crowd1Router);
 
 //jquery
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<head>
+    <%- include('include/config.ejs') %>
+        <script src="/js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <style>
+            /*section2*/
+
+            #section2 {
+                margin-top: 30px;
+            }
+
+            #section2 div select {
+                background-color: #56abff;
+                color: white;
+            }
+
+            /*section3*/
+
+            /* #section3 {
+                margin-top: 30px;
+            } */
+
+            #section3 div {
+                margin: .5rem .75rem;
+                margin-top: 30px !important;
+                background-color: #56abff;
+                color: white;
+                padding: .5rem .75rem;
+            }
+
+            /*section4*/
+
+            #section4 {
+                margin-top: 30px;
+            }
+
+            #section4>div {
+                padding: 10px;
+            }
+        </style>
+</head>
+
+<body>
+    <!-- Page Header -->
+    <header>
+        <%- include('include/header-crowd.ejs') %>
+    </header>
+
+    <hr>
+    <select-team>
+        <%- include('include/select-team.ejs') %>
+    </select-team>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <div id="section3" class="row">
+            <div class="col-sm-3">내팀 최근 5경기</div>
+            <div class="col-sm-3">상대전적</div>
+        </div>
+
+        <div id="section2" class="row">
+            <div class="col-sm-2">
+                <select class="form-control">
+                    <option>상대팀 선택</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">확인</a>
+            </div>
+        </div>
+
+        <div id="section4" class="row text-center">
+            <div class="col-sm-12 border">
+                <!--Table-->
+                <table class="table">
+
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <th>경기일시</th>
+                            <th>홈</th>
+                            <th>스코어</th>
+                            <th>원정</th>
+                            <th>*</th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+
+                    <!--Table body-->
+                    <tbody>
+                        <tr>
+                            <td>data</td>
+                            <td>data</td>
+                            <td>data</td>
+                            <td>data</td>
+                            <td>
+                                <a href="crowd-2.html">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
+            </div>
+        </div>
+
+
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <%- include('include/footer.ejs') %>
+    </footer>
+</body>
+
+</html>
