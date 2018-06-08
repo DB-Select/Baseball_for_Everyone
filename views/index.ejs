@@ -2,6 +2,9 @@
 <html>
 
 <head>
+  <config>
+    <%- include('include/config.ejs') %>
+  </config>
   <div id="config"></div>
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -10,6 +13,7 @@
   <script src="/js/bootstrap.min.js"></script>
   <script src="/javascripts/index.js"></script>
 </head>
+
 <body>
   <header>
     <%- include('include/header-admin.ejs') %>
@@ -23,17 +27,17 @@
     <div id="section3" class="row text-center">
       <div class="col-sm-4 border">
         <!-- <a href="agent-1.html"> -->
-          <img src="images/3views/agent.png">
+        <img src="images/3views/agent.png">
         <!-- </a> -->
       </div>
       <div class="col-sm-4 border">
         <!-- <a href="crowd-1.html"> -->
-          <img src="images/3views/crowd.png">
+        <img src="images/3views/crowd.png">
         <!-- </a> -->
       </div>
       <div class="col-sm-4 border">
         <!-- <a href="player-1.html"> -->
-          <img src="images/3views/player.png">
+        <img src="images/3views/player.png">
         <!-- </a> -->
       </div>
     </div>
