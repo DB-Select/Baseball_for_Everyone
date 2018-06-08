@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <div id="config"></div>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/javascripts/index.js"></script>
+</head>
+<body>
+  <header>
+    <%- include('include/header-admin.ejs') %>
+  </header>
+  <hr>
+  <!-- Main Content -->
+  <div class="container">
+    <section2>
+      <%- include('include/select-team.ejs') %>
+    </section2>
+    <div id="section3" class="row text-center">
+      <div class="col-sm-4 border">
+        <!-- <a href="agent-1.html"> -->
+          <img src="images/3views/agent.png">
+        <!-- </a> -->
+      </div>
+      <div class="col-sm-4 border">
+        <!-- <a href="crowd-1.html"> -->
+          <img src="images/3views/crowd.png">
+        <!-- </a> -->
+      </div>
+      <div class="col-sm-4 border">
+        <!-- <a href="player-1.html"> -->
+          <img src="images/3views/player.png">
+        <!-- </a> -->
+      </div>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <%- include('include/footer.ejs') %>
+  </footer>
+</body>
+
 </html>
