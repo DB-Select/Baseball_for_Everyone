@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!--css load-->
+        <div id="config"></div>
+        <head>
+            <div id="config"></div>
+            <link rel="stylesheet" href="/stylesheets/style.css"> 
+            <link rel="stylesheet" href="/css/bootstrap.min.css"> 
+            <script src="/js/jquery.min.js"></script> 
+            <script src="/js/bootstrap.min.js"></script>
+            <style>
+              /*section2*/
+              #section2{
+                margin-top: 30px;
+              }
+              #section2 ul{
+                list-style:none;
+                margin:0;
+                padding:0;
+              }
+              #section2 ul li{
+                margin: 0 0 0 0;
+                padding: 0 0 0 0;
+                border : 0;
+                float: left;
+                border: 1px solid;
+                width: 10%;
+              }
+              #section2 ul li img{
+                width: 100%;
+              }
+        
+              /*section3*/
+              #section3{
+                margin-top: 30px;
+              }
+              #section3 div{
+                padding: 20px;
+              }
+              #section3 div img{
+                width: 100%;
+              }
+            </style>
+          </head>
+    <!--
+         <style>
+            /*section2*/
+            #section2{
+                margin-top: 30px;
+            }
+            #section2 > div{
+                padding: 40px;
+            }
+            #section2 div:last-child{
+                padding: 0px;
+            }
+            #section2 div:last-child div{
+                margin-top: 90%;
+    
+            }
+            @media (max-width: 768px){
+                #section2 div:last-child div{
+                    margin-top: 130%;
+                }
+            }
+            @media (max-width: 575px){
+                #section2 div:last-child div{
+                    margin-top: 10%;
+                }
+            }
+        </style>
+    -->
+    </head>
+
+<body>
+
+<!-- Page Header -->
+<header>
+    <%- include('include/header-crowd.ejs') %>
+</header>
+
+<hr>
+
+<!-- Main Content -->
+<div class="container">
+    <div id="section2" class="row">
+        <div class="col-sm-12 border">
+            <ul class="header-ul text-center">
+                <li> <img src="img/team_logo/HANHWA.png"></li>
+                <li class="middle">100</li>
+                <li class="middle">vs</li>
+                <li class="middle">100</li>
+                <li><img src="img/team_logo/DOOSAN.png"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="section3" class="row text-center">
+
+        <div class="col-sm-4 border">
+            <!--Table-->
+            <table class="table">
+                <!--Table head-->
+                <thead>
+                <tr>
+                    <th  class=" text-center">�덊��ъ닔</th>
+                </tr>
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                <tr>
+                    <td>data</td>
+                </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>
+
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4 border">
+            <!--Table-->
+            <table class="table">
+                <!--Table head-->
+                <thead>
+                <tr>
+                    <th  class=" text-center">�먯젙���ъ닔</th>
+                </tr>
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                <tr>
+                    <td>data</td>
+                </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>
+
+    </div>
+
+    <div id="section4" class="row text-center">
+
+        <div class="col-sm-4 border">
+            <!--Table-->
+            <table class="table">
+                <!--Table head-->
+                <thead>
+                <tr>
+                    <th  class=" text-center">�덊�����</th>
+                </tr>
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                <tr>
+                    <td>data</td>
+                </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>
+
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4 border">
+            <!--Table-->
+            <table class="table">
+                <!--Table head-->
+                <thead>
+                <tr>
+                    <th  class=" text-center">�먯젙������</th>
+                </tr>
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                <tr>
+                    <td>data</td>
+                </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>
+
+    </div>
+
+
+</div>
+
+<hr>
+
+<!-- Footer -->
+<footer>
+    <%- include('include/footer.ejs') %>
+</footer>
+
+<!--異뷀썑 �쒗뵆由� �붿쭊 �ъ슜 �� 遺덈윭�ㅻ룄濡� 援ы쁽�섏꽭��.-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

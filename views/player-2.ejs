@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!--css load-->
+        <div id="config"></div>
+        <head>
+            <div id="config"></div>
+            <link rel="stylesheet" href="/stylesheets/style.css"> 
+            <link rel="stylesheet" href="/css/bootstrap.min.css"> 
+            <script src="/js/jquery.min.js"></script> 
+            <script src="/js/bootstrap.min.js"></script>
+            <style>
+              /*section2*/
+              #section2{
+                margin-top: 30px;
+              }
+              #section2 ul{
+                list-style:none;
+                margin:0;
+                padding:0;
+              }
+              #section2 ul li{
+                margin: 0 0 0 0;
+                padding: 0 0 0 0;
+                border : 0;
+                float: left;
+                border: 1px solid;
+                width: 10%;
+              }
+              #section2 ul li img{
+                width: 100%;
+              }
+        
+              /*section3*/
+              #section3{
+                margin-top: 30px;
+              }
+              #section3 div{
+                padding: 20px;
+              }
+              #section3 div img{
+                width: 100%;
+              }
+            </style>
+          </head>
+    <!--
+         <style>
+            /*section2*/
+            #section2{
+                margin-top: 30px;
+            }
+            #section2 > div{
+                padding: 40px;
+            }
+            #section2 div:last-child{
+                padding: 0px;
+            }
+            #section2 div:last-child div{
+                margin-top: 90%;
+    
+            }
+            @media (max-width: 768px){
+                #section2 div:last-child div{
+                    margin-top: 130%;
+                }
+            }
+            @media (max-width: 575px){
+                #section2 div:last-child div{
+                    margin-top: 10%;
+                }
+            }
+        </style>
+    -->
+    </head>
+
+<body>
+
+<!-- Page Header -->
+<header>
+    <%- include('include/header-player.ejs') %>
+</header>
+
+<hr>
+
+<!-- Main Content -->
+<div class="container">
+
+
+    <section2>
+        <%- include('include/select-team.ejs') %>
+    </section2>
+    </div>
+
+    <div id="section3" class="row text-center">
+        <div class="col-sm-12 text-left"><h3>txt1</h3></div>
+        <div class="col-sm-12 border">
+            <!--Table-->
+            <table class="table">
+                <!--Table head-->
+                <thead>
+                <tr>
+                    <th>txt2</th>
+                    <th>txt3</th>
+                    <th>txt4</th>
+                    <th>txt5</th>
+                    <th>txt6</th>
+                    <th>txt7</th>
+                    <th>txt8</th>
+                    <th>txt9</th>
+                    <th>txt10</th>
+                </tr>
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                <tr>
+                    <td>txt11</td>
+                    <td>txt12</td>
+                    <td>txt13</td>
+                    <td>txt14</td>
+                    <td>txt15</td>
+                    <td>txt16</td>
+                    <td>txt17</td>
+                    <td>txt18</td>
+                    <td>txt19</td>
+                </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>
+    </div>
+
+    <div id="section4" class="row text-center">
+        <div class="col-sm-12 text-left"><h3>txt20</h3></div>
+        <div class="col-sm-12 border">
+            <!--Table-->
+            <table class="table">
+                <!--Table head-->
+                <thead>
+                <tr>
+                    <th>txt21</th>
+                    <th>txt22</th>
+                    <th>txt23</th>
+                    <th>txt24</th>
+                    <th>txt25</th>
+                    <th>txt26</th>
+                    <th>txt27</th>
+                    <th>txt28</th>
+                    <th>txt29</th>
+                </tr>
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                <tr>
+                    <td>txt30</td>
+                    <td>txt31</td>
+                    <td>txt32</td>
+                    <td>txt33</td>
+                    <td>txt34</td>
+                    <td>txt35</td>
+                    <td>txt36</td>
+                    <td>txt37</td>
+                    <td>txt38</td>
+                </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>
+    </div>
+
+
+</div>
+
+<hr>
+
+<!-- Footer -->
+<footer>
+    <%- include('include/footer.ejs') %>
+</footer>
+
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
