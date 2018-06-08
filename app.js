@@ -29,6 +29,9 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 //jquery-ui-dist
 app.use('/js', express.static(__dirname + '/node_modules/jquery-ui-dist')); 
 app.use('/css', express.static(__dirname + '/node_modules/jquery-ui-dist')); 
+//font-awesome
+app.use('/css', express.static(__dirname + '/node_modules/font-awesome/css')); 
+app.use('/fonts', express.static(__dirname + '/node_modules/font-awesome/fonts')); 
 
 
 // catch 404 and forward to error handler
