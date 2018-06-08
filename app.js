@@ -21,9 +21,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+//jquery
+app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
+//bootstrap
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS 
-app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery 
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); 
+//jquery-ui-dist
+app.use('/js', express.static(__dirname + '/node_modules/jquery-ui-dist')); 
+app.use('/css', express.static(__dirname + '/node_modules/jquery-ui-dist')); 
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
