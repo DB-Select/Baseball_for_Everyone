@@ -9,6 +9,12 @@
     <script src="/js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="javascripts/admin.js"></script>
+    
+    <script src="/js/jquery.jexcel.js"></script>
+    <script src="/js/jquery.jcalendar.js"></script>
+    <link rel="stylesheet" href="/css/jquery.jexcel.css" type="text/css" />
+    <link rel="stylesheet" href="/css/jquery.jcalendar.css" type="text/css" />
+
     <!--    section의 margin, padding의 경우 현재 디자인이 픽스되지 않았기에
     각 섹션별로 값을 잡았습니다. 추후 공통 클래스로 빼도록하세요.
         http로 파일을 로드시켜야 정상작동합니다.-->
@@ -110,51 +116,7 @@
         </div>
 
         <div id="section4" class="row text-center">
-            <div class="col-sm-12 border">
-                <!--Table-->
-                <table class="table">
-                    <!--Table head-->
-                    <thead>
-                        <tr>
-                            <!--active : blue-->
-                            <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
-                            <th>ID
-                                <i class="fa fa-sort fa-lg" aria-hidden="true"></i>
-                                <i class="fa fa-sort active fa-2x" aria-hidden="true"></i>
-                            </th>
-                            <th>NAME
-                                <i class="fa fa-sort" aria-hidden="true"></i>
-                            </th>
-                            <th>WIN
-                                <i class="fa fa-sort" aria-hidden="true"></i>
-                            </th>
-                            <th>DRAW
-                                <i class="fa fa-sort" aria-hidden="true"></i>
-                            </th>
-                            <th>DEFEAT
-                                <i class="fa fa-sort" aria-hidden="true"></i>
-                            </th>
-                            <th>E
-                                <i class="fa fa-sort" aria-hidden="true"></i>
-                            </th>
-                        </tr>
-                    </thead>
-                    <!--Table head-->
-
-                    <!--Table body-->
-                    <tbody>
-                        <tr>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                        </tr>
-                    </tbody>
-                    <!--Table body-->
-                </table>
-                <!--Table-->
+            <div class="col-sm-12 border" id="table">
             </div>
         </div>
 
