@@ -2,6 +2,9 @@
 <html>
 
     <head>
+        <config>
+            <%- include('include/config.ejs') %>
+        </config>
             <div id="config"></div>
             <link rel="stylesheet" href="/stylesheets/style.css"> 
             <link rel="stylesheet" href="/css/bootstrap.min.css"> 
@@ -53,22 +56,9 @@
 
 <!-- Main Content -->
 <div class="container">
-    <div id="section2" class="row">
-        <div class="col-sm-12 border">
-            <ul>
-                <li><img src="images/team_logo/DOOSAN.png" width="283" height="100"></li>
-                <li><img src="images/team_logo/HANHWA.png"width="283" height="100"></li>
-                <li><img src="images/team_logo/KIA.png" width="283" height="100"></li>
-                <li><img src="images/team_logo/KT.png" width="283" height="100"></li>
-                <li><img src="images/team_logo/LG.png" width="283" height="100"></li>
-                <li><img src="images/team_logo/LOTTE.png" width="283" height="100"></li>
-                <li><img src="images/team_logo/NC.png" width="283" height="100"></li>
-                <li><img src="images/team_logo/NEXEN.png" width="283" height="100"></li>
-                <li><img src="images/team_logo/SAMSUNG.jpg" width="283" height="100"></li>
-                <li><img src="images/team_logo/SK.png" width="283" height="100"></li>
-            </ul>
-        </div>
-    </div>
+    <section2>
+        <%- include('include/select-team.ejs') %>
+    </section2>
 
     <div id="section3" class="row text-center">
         <div class="col-sm-12 border">
