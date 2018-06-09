@@ -18,7 +18,6 @@ router.get('/tables', function (req, res, next) {
       return next(err);
     });
   }, function (err, message) {
-    console.log(getRows);
     if (err) {
       res.status(400).json({
         'code': -1,
@@ -43,7 +42,18 @@ router.get('/tables/:table', function (req, res, next) {
         return next(err, 'DESCRIBE table error.');
       }
       tableInfo = tableInfoP;
-      connection.query('select * from ' + req.params.table, function (err, tableRowsP) {
+      var selectSql = 'select ';
+      tableInfo.forEach(element => {
+        if (element.Type == "date") {
+          selectSql += 'DATE_FORMAT(' + element.Field + ', "%d-%l-%Y") as ' + element.Field + ', ';
+        } else {
+          selectSql += element.Field + ', ';
+        }
+      });
+      selectSql = selectSql.substring(0, selectSql.length - 2);
+      selectSql += ' from ' + req.params.table;
+      console.log(selectSql);
+      connection.query(selectSql, function (err, tableRowsP) {
         if (err) {
           return next(err, 'SELECT table error');
         }

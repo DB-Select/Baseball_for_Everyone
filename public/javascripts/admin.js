@@ -1,6 +1,6 @@
-function excelTest() {
+function getTable() {
     $.ajax({
-        url: '/admin/tables/hitter',
+        url: '/admin/tables/' + $("#tables").val(),
         type: 'get',
         success: function (result) {
             result = result.result;
@@ -10,9 +10,34 @@ function excelTest() {
             result['tableInfo'].forEach(function (element) {
                 var column = {};
                 colHeaders.push(element['Field']);
+                // text, numeric, hidden, dropdown, autocomplete, checkbox, calendar
                 if (element['Type'].startsWith('int')) {
-                    column.type = 'int';
-                } else if (element['Type'].startsWith('varchar')) {
+                    column.type = 'numeric';
+                } else if (element['Type'].startsWith('float')) {
+                    column.type = 'numeric';
+                } else if (element['Type'].startsWith('tinyint')) {
+                    column.type = 'checkbox';
+                } else if (element['Type'].startsWith('enum')) { //"enum('W','L','S','H')"
+                // { type: 'dropdown', source:[ {'id':'1', 'name':'Fruits'}, {'id':'2', 'name':'Legumes'}, {'id':'3', 'name':'General Food'}, ] },
+                    column.type = 'dropdown';
+                    column.source = [];
+                    if (element['Null'] == 'YES') {
+                        column.source.push('');
+                    }
+                    var enumVal = element['Type'];
+                    enumVal = enumVal.split('(').pop();
+                    enumVal = enumVal.split(')')[0];
+                    enumVal = enumVal.split(',');
+                    for (var i = 0; i < enumVal.length; i++) {
+                        // column.source.push({id:i, name:enumVal[i].slice(1, enumVal[i].length-1)});
+                        column.source.push(enumVal[i].slice(1, enumVal[i].length-1));
+                    }
+                } else if (element['Type'].startsWith('date')) {
+                    column.type = 'calendar';
+                    column.options = {
+                        format: 'DD/MM/YYYY'
+                    };
+                } else { //if (element['Type'].startsWith('varchar')) {
                     column.type = 'text';
                 }
                 columns.push(column);
@@ -25,6 +50,7 @@ function excelTest() {
                 });
                 data.push(row);
             });
+            // data.splice(100, data.length - 100);
             $('#table').jexcel({
                 data: data,
                 colHeaders: colHeaders,
@@ -48,11 +74,11 @@ $(function () {
                     .html(element['Tables_in_baseball'])
                     .appendTo($("#tables"));
             });
-
+            getTable();
             $("#tables").change(function () {
-                console.log($(this).val());
+                getTable();
+                // console.log($(this).val());
             })
         }
     });
-    excelTest();
 });
