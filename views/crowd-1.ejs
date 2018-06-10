@@ -59,27 +59,38 @@
     <div class="container">
 
         <div id="section3" class="row">
-            <div class="col-sm-3">내팀 최근 5경기</div>
-            <div class="col-sm-3">상대전적</div>
+        <script>
+                $(document).ready(function(){
+                    $("#my").click(function(){
+                        $("#awaybutton").hide();
+                    });
+                    $("#away").click(function(){
+                        $("#awaybutton").show();
+                    });
+                });
+        </script>
+                
+                
+            <div class="col-sm-3" id = "my" >내팀 최근 5경기</div>
+            <div class="col-sm-3" id = "away" >상대전적</div>
         </div>
-
-        <div id="section2" class="row">
-            <div class="col-sm-2">
-                <select class="form-control">
-                    <option>상대팀 선택</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
-            </div>
-            <div class="col-sm-2">
-                <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">확인</a>
-            </div>
-        </div>
+        
 
         <div id="section4" class="row text-center">
             <div class="col-sm-12 border">
+                <div class="col-sm-2" id = "awaybutton" style="display: none;">
+                        <select class="form-control">
+                            <option>상대팀 선택</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">확인</a>
+                    </div>
+                </div>
+               
+
                 <!--Table-->
                 <table class="table">
 
@@ -115,6 +126,7 @@
             </div>
         </div>
 
+ 
 
     </div>
 
