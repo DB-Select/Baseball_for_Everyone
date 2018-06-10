@@ -43,19 +43,21 @@ router.get('/home_pitcher_record', function (req, res, next) {
         pl.EARNED_HIT, pl.EARNED_RUN, pl.ALLOWED_RUN, pl.WALK, pl.STRIKE_OUT, pl.EARNED_HOME_RUN, pl.EARNED_RUN_AVERAGE\
         FROM baseball.Game g, baseball.PITCHER_LINEUP pl, baseball.pitcher p WHERE (g.ID = ?) AND (pl.PLAYER_ID = p.PLAYER_ID)\
         AND (g.ID = pl.GAME_ID) AND (pl.IS_HOME = TRUE)\
-        ORDER BY CASE\
-           WHEN (pl.WIN_LOSE_SAVE IS NOT NULL) AND (pl.WIN_LOSE_SAVE = \'W\')\
-           THEN\
-              1\
-           WHEN (pl.WIN_LOSE_SAVE IS NOT NULL) AND (pl.WIN_LOSE_SAVE = \'H\')\
-           THEN\
-              3\
-           WHEN (pl.WIN_LOSE_SAVE IS NOT NULL) AND (pl.WIN_LOSE_SAVE = \'S\')\
-           THEN\
-              4\
-           ELSE\
-              2\
-        END ASC;', [req.query.game_id], function (err, rows) {
+        ORDER BY CASE WHEN (pl.WIN_LOSE_SAVE IS NOT NULL) AND (pl.WIN_LOSE_SAVE = \'W\')\
+        THEN\
+           1\
+        WHEN (pl.WIN_LOSE_SAVE IS NOT NULL) AND (pl.WIN_LOSE_SAVE = \'H\')\
+        THEN\
+           4\
+        WHEN (pl.WIN_LOSE_SAVE IS NOT NULL) AND (pl.WIN_LOSE_SAVE = \'S\')\
+        THEN\
+           5\
+        WHEN (pl.WIN_LOSE_SAVE IS NOT NULL) AND (pl.WIN_LOSE_SAVE = \'L\')\
+        THEN \
+           2\
+        ELSE\
+           3\
+     END ASC;', [req.query.game_id], function (err, rows) {
                 if (err) {
                     return next(err, 'GET tables error.');
                 }
@@ -82,7 +84,25 @@ router.get('/home_pitcher_record', function (req, res, next) {
 
 router.get('/away_pitcher_record', function (req, res, next) {
     dbModule.withConnection(dbModule.pool, function (connection, next) {
-        connection.query('', [req.query.game_id], function (err, rows) {
+        connection.query('SELECT p.name, pl.WIN_LOSE_SAVE, pl.INNING_PITCHED, pl.BATS, pl.EARNED_HIT,\
+        pl.EARNED_RUN, pl.ALLOWED_RUN, pl.WALK, pl.STRIKE_OUT, pl.EARNED_HOME_RUN, pl.EARNED_RUN_AVERAGE\
+        FROM baseball.Game g, baseball.PITCHER_LINEUP pl, baseball.pitcher p\
+        WHERE (g.ID = ?) AND (pl.PLAYER_ID = p.PLAYER_ID) AND (g.ID = pl.GAME_ID) AND (pl.IS_HOME = FALSE)\
+        ORDER BY CASE WHEN (pl.WIN_LOSE_SAVE IS NOT NULL) AND (pl.WIN_LOSE_SAVE = \'W\')\
+           THEN\
+              1\
+           WHEN (pl.WIN_LOSE_SAVE IS NOT NULL) AND (pl.WIN_LOSE_SAVE = \'H\')\
+           THEN\
+              4\
+           WHEN (pl.WIN_LOSE_SAVE IS NOT NULL) AND (pl.WIN_LOSE_SAVE = \'S\')\
+           THEN\
+              5\
+           WHEN (pl.WIN_LOSE_SAVE IS NOT NULL) AND (pl.WIN_LOSE_SAVE = \'L\')\
+           THEN \
+              2\
+           ELSE\
+              3\
+        END ASC;', [req.query.game_id], function (err, rows) {
                 if (err) {
                     return next(err, 'GET tables error.');
                 }
@@ -108,7 +128,11 @@ router.get('/away_pitcher_record', function (req, res, next) {
 
 router.get('/home_hitter_record', function (req, res, next) {
     dbModule.withConnection(dbModule.pool, function (connection, next) {
-        connection.query('', [req.query.game_id], function (err, rows) {
+        connection.query('  SELECT hl.POSITION, h.name, hl.AT_BAT, hl.HIT, hl.HOME_RUN, hl.RUN_BATTED_IN,\
+        hl.RUN_SCORE, hl.WALK, hl.STRIKE_OUT, hl.HIT_BY_PITCHING, hl.BATTING_AVERAGE\
+        FROM baseball.Game g, baseball.HITTER_LINEUP hl, baseball.hitter h \
+        WHERE     (g.ID = ?) AND (hl.PLAYER_ID = h.PLAYER_ID) AND (g.ID = hl.GAME_ID) AND (hl.IS_HOME = TRUE)\
+        ORDER BY hl.POSITION ASC, hl.AT_BAT DESC;', [req.query.game_id], function (err, rows) {
                 if (err) {
                     return next(err, 'GET tables error.');
                 }
@@ -134,7 +158,14 @@ router.get('/home_hitter_record', function (req, res, next) {
 
 router.get('/away_hitter_record', function (req, res, next) {
     dbModule.withConnection(dbModule.pool, function (connection, next) {
-        connection.query('', [req.query.game_id], function (err, rows) {
+        connection.query('SELECT hl.POSITION, h.name, hl.AT_BAT, hl.HIT, hl.HOME_RUN, hl.RUN_BATTED_IN,\
+        hl.RUN_SCORE, hl.WALK, hl.STRIKE_OUT, hl.HIT_BY_PITCHING, hl.BATTING_AVERAGE\
+        FROM baseball.Game g, baseball.HITTER_LINEUP hl, baseball.hitter h\
+        WHERE     (g.ID = ?)\
+        AND (hl.PLAYER_ID = h.PLAYER_ID)\
+        AND (g.ID = hl.GAME_ID)\
+        AND (hl.IS_HOME = FALSE)\
+        ORDER BY hl.POSITION ASC, hl.AT_BAT DESC;', [req.query.game_id], function (err, rows) {
                 if (err) {
                     return next(err, 'GET tables error.');
                 }
@@ -157,4 +188,4 @@ router.get('/away_hitter_record', function (req, res, next) {
         }
     });
 });
-module.exports = router;
+
