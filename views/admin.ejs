@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--css load-->
+    <config>
+        <%- include('include/config.ejs') %>
+    </config>
+    <script src="/js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="javascripts/admin.js"></script>
+    
+    <script src="/js/jquery.jexcel.js"></script>
+    <script src="/js/jquery.jcalendar.js"></script>
+    <link rel="stylesheet" href="/css/jquery.jexcel.css" type="text/css" />
+    <link rel="stylesheet" href="/css/jquery.jcalendar.css" type="text/css" />
+
+    <!--    section의 margin, padding의 경우 현재 디자인이 픽스되지 않았기에
+    각 섹션별로 값을 잡았습니다. 추후 공통 클래스로 빼도록하세요.
+        http로 파일을 로드시켜야 정상작동합니다.-->
+    <style>
+        /*section2*/
+
+        #section2 {
+            margin-top: 30px;
+        }
+
+        #section2 div select {
+            background-color: #56abff;
+            color: white;
+        }
+
+        /*section3*/
+
+        #section3 {
+            margin-top: 30px;
+        }
+
+        #section3 ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #section3 ul li {
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+            border: 1px solid gray;
+            float: left;
+            padding: 15px;
+        }
+
+        /*section4*/
+
+        #section4 {
+            margin-top: 30px;
+        }
+
+        #section4 div {
+            padding: 10px;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Page Header -->
+    <header>
+        <%- include('include/header-admin-active.ejs') %>
+    </header>
+
+    <hr>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div id="section2" class="row">
+            <div class="col-sm-2">
+                <select class="form-control" id="tables">
+                    <!-- <option>타자팀선택</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option> -->
+                </select>
+            </div>
+        </div>
+
+
+
+        <div id="section3" class="row">
+            <div class="col-sm-12">
+                <ul>
+                    <li>
+                        <a href="" style="color: blue;">
+                            <i class="fa fa-refresh" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" style="color: green;">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" style="color: red;">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" style="color: palegreen">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="section4" class="row text-center">
+            <div class="col-sm-12 border" id="table">
+            </div>
+        </div>
+
+
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <%- include('include/footer.ejs') %>
+    </footer>
+</body>
+
+</html>
