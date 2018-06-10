@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var agent1Router = require('./routes/agent-1');
 var agent2Router = require('./routes/agent-2');
 var player1Router = require('./routes/player-1');
 var selectTeamRouter = require('./routes/include/select-team');
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/select-team', selectTeamRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/agent-1', agent1Router);
 app.use('/agent-2', agent2Router);
 app.use('/player-1', player1Router);
 
