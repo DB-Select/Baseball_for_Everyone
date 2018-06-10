@@ -71,6 +71,7 @@
 
     <div id="section3" class="row text-center">
         <div class="col-sm-12 border">
+
             <!--Table-->
             <table class="table">
                 <!--Table head-->
@@ -109,14 +110,35 @@
         </div>
     </div>
 
-    <div id="section4" class="row">
-        <a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">투수</a>
-        <a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">타자</a>
-        <a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">투수vs타자</a>
+    
+    <div id="section3" class="row">
+            <script>
+                    $(document).ready(function(){
+                        $("#hitterpitcher").click(function(){
+                            $("#pitcher").show();
+                            $("#pithit").hide();
+                        });
+                        $("#hitversepit").click(function(){
+                            $("#pithit").show();
+                            $("#pitcher").hide();
+                        });
+                    });
+            </script>
+                    
+                <div id="section4" class="row">
+                            <a href="#" class="btn btn-primary btn-sm active" id = "hitterpitcher" role="button" aria-pressed="true">투수</a>
+                            <a href="#" class="btn btn-primary btn-sm active" id = "hitterpitcher" role="button" aria-pressed="true">타자</a>
+                            <a href="#" class="btn btn-primary btn-sm active" id = "hitversepit" role="button" aria-pressed="true">투수vs타자</a>
+                 </div>
     </div>
 
+
+
+  
+
     <div id="section5" class="row text-center">
-        <div class="col-sm-12 border">
+        <div class="col-sm-12 border" id = "pitcher" >
+            <p>This is pitcher table</p>
             <!--Table-->
             <table class="table">
                 <!--Table head-->
@@ -156,6 +178,48 @@
     </div>
 
 
+
+<!--아래는 투타테이블-->
+<div id="section5" class="row text-center" >
+        <div class="col-sm-12 border"  id = "pithit" style="display:none">
+            <p>This is pithit table</p>
+            <!--Table-->
+            <table class="table">
+                <!--Table head-->
+                <thead>
+                <tr>
+                    <!--active : blue-->
+                    <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
+                    <th width="10%">순위<i class="fa fa-sort fa-lg" aria-hidden="true"></i><i class="fa fa-sort active fa-2x" aria-hidden="true"></i></th>
+                    <th width="20%">선수명<i class="fa fa-sort" aria-hidden="true"></i></th>
+                    <th width="60%">투/타 별 속성<i class="fa fa-sort" aria-hidden="true"></i></th>
+                    <th width="10%">*</th>
+                </tr>
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>배준기</td>
+                    <td>투/타 별 속성</td>
+                    <td><a href="player-2.html"><i class="fa fa-eye" aria-hidden="true"></i></a> </td>
+
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>김가가</td>
+                    <td>투/타 별 속성</td>
+                    <td><a href="player-3.html"><i class="fa fa-eye" aria-hidden="true"></i></a> </td>
+
+                </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+        </div>
+    </div>
 
 
 </div>
