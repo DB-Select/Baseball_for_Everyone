@@ -138,7 +138,6 @@
 
     <div id="section5" class="row text-center">
         <div class="col-sm-12 border" id = "pitcher" >
-            <p>This is pitcher table</p>
             <!--Table-->
             <table class="table">
                 <!--Table head-->
@@ -146,7 +145,7 @@
                 <tr>
                     <!--active : blue-->
                     <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
-                    <th width="10%">순위<i class="fa fa-sort fa-lg" aria-hidden="true"></i><i class="fa fa-sort active fa-2x" aria-hidden="true"></i></th>
+                    <th width="10%">순위<i class="fa fa-sort fa-lg" aria-hidden="true"></i>
                     <th width="20%">선수명<i class="fa fa-sort" aria-hidden="true"></i></th>
                     <th width="60%">투/타 별 속성<i class="fa fa-sort" aria-hidden="true"></i></th>
                     <th width="10%">*</th>
@@ -182,7 +181,28 @@
 <!--아래는 투타테이블-->
 <div id="section5" class="row text-center" >
         <div class="col-sm-12 border"  id = "pithit" style="display:none">
-            <p>This is pithit table</p>
+            <div class="input-group" >
+                    <select class="custom-select" id="inputGroupSelect04">
+                      <option selected>투수팀 선택</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="3">4</option>
+                      <option value="3">5</option>
+                    </select>
+                        <select class="custom-select" id="inputGroupSelect04">
+                        <option selected>투수 선택</option>
+                        <option value="1">정지윤</option>
+                        <option value="2">지유니</option>
+                        <option value="3">쩡쯔룬</option>
+                        <option value="3">찌윤이</option>
+                        <option value="3">찌</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button">확인</button>
+                        </div>
+            </div>
+
             <!--Table-->
             <table class="table">
                 <!--Table head-->
@@ -190,10 +210,27 @@
                 <tr>
                     <!--active : blue-->
                     <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
-                    <th width="10%">순위<i class="fa fa-sort fa-lg" aria-hidden="true"></i><i class="fa fa-sort active fa-2x" aria-hidden="true"></i></th>
-                    <th width="20%">선수명<i class="fa fa-sort" aria-hidden="true"></i></th>
-                    <th width="60%">투/타 별 속성<i class="fa fa-sort" aria-hidden="true"></i></th>
-                    <th width="10%">*</th>
+                    <th width="40%">이름<i class="fa fa-sort fa-lg" aria-hidden="true"></i></th>
+                    <th width="40%">Number of pitching<i class="fa fa-sort" aria-hidden="true"></i></th>
+                    <th width="20%">hit<i class="fa fa-sort" aria-hidden="true"></i></th>
+                    <th width="10%">Double</th>
+                    <th width="10%">Triple</th>
+                    <th width="10%">Salary</th>
+                    <th width="10%">TN</th>
+                    <th width="10%">ERA</th>
+                    <th width="10%">G</th>
+                    <th width="10%">CG</th>
+                    <th width="10%">SHO</th>
+                    <th width="10%">W</th>
+                    <th width="10%">L</th>
+                    <th width="10%">SV</th>
+                    <th width="10%">HLD</th>
+                    <th width="10%">WPCT</th>
+                    <th width="10%">TBF</th>
+                    <th width="10%">IP</th>
+                    <th width="10%">HR</th>
+
+
                 </tr>
                 </thead>
                 <!--Table head-->
@@ -201,23 +238,81 @@
                 <!--Table body-->
                 <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>배준기</td>
-                    <td>투/타 별 속성</td>
+                    <td>~~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
+                    <td>~</td>
                     <td><a href="player-2.html"><i class="fa fa-eye" aria-hidden="true"></i></a> </td>
-
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>김가가</td>
-                    <td>투/타 별 속성</td>
-                    <td><a href="player-3.html"><i class="fa fa-eye" aria-hidden="true"></i></a> </td>
 
                 </tr>
                 </tbody>
                 <!--Table body-->
             </table>
             <!--Table-->
+
+            <div class="input-group" >
+                    <select class="custom-select" id="inputGroupSelect04">
+                      <option selected>타자팀 선택</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="3">4</option>
+                      <option value="3">5</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">확인</button>
+                    </div>
+            </div>
+            <!--Table-->
+            <table class="table">
+                    <!--Table head-->
+                    <thead>
+                    <tr>
+                        <!--active : blue-->
+                        <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
+                        <th width="10%">순위<i class="fa fa-sort fa-lg" aria-hidden="true"></i>
+                        <th width="20%">선수명<i class="fa fa-sort" aria-hidden="true"></i></th>
+                        <th width="60%">투/타 별 속성<i class="fa fa-sort" aria-hidden="true"></i></th>
+                        <th width="10%">*</th>
+                    </tr>
+                    </thead>
+                    <!--Table head-->
+    
+                    <!--Table body-->
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>배준기</td>
+                        <td>투/타 별 속성</td>
+                        <td><a href="player-2.html"><i class="fa fa-eye" aria-hidden="true"></i></a> </td>
+    
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>김가가</td>
+                        <td>투/타 별 속성</td>
+                        <td><a href="player-3.html"><i class="fa fa-eye" aria-hidden="true"></i></a> </td>
+    
+                    </tr>
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
         </div>
     </div>
 
