@@ -1,0 +1,45 @@
+#section2{
+    margin-top: 30px;
+}
+#section2 ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#section2 ul li{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    border : 0;
+    float: left;
+    border: 0px solid;
+    width: 20%;
+    height: 100%;
+}
+#section2 ul li.middle{
+    margin-top: 7.5%;
+}
+#section2 ul li img:first-child, #section2 ul li img:last-child{
+    width: 100%;
+}
+@media (max-width: 768px) {
+    #section2 ul li.middle{
+        margin-top: 6% !important;
+    }
+}
+
+/*section3*/
+#section3{
+    margin-top:30px;
+}
+#section3 div{
+    padding: 40px;
+}
+
+
+/*section4*/
+#section4{
+    margin-top:30px;
+}
+#section4 div{
+    padding: 40px;
+}
