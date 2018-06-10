@@ -28,10 +28,25 @@
 <hr>
 
 <!-- Main Content -->
-<div class="container">
+<div class="container text-center">
     <section2>
         <!-- select-team header 처럼 처리할 것-->
-        
+        <!DOCTYPE html>
+        <html>
+            <link rel="stylesheet" href="/css/jquery-ui.min.css">
+            <script src="/js/jquery-ui.min.js"></script>
+            <script src="/javascripts/utility.js"></script>
+            <link rel="stylesheet" href="/stylesheets/crowd-2.css">
+            <script src="/javascripts/crowd-2.js"></script>
+
+            <div id="section2" class="row">
+                <div class="col-sm-12 border">
+                    <ul id="result">
+                    </ul>
+                </div>
+            </div>
+        </html>
+
         <!--
             <div class="col-sm-12 border text-center">
             <ul class="header-ul text-center">-->
@@ -51,23 +66,32 @@
 
         <div class="col-sm-4 border">
             <!--Table-->
-            <table class="table">
-                <!--Table head-->
-                <thead>
-                <tr>
-                    <th  class=" text-center">txt1</th>
-                </tr>
-                </thead>
-                <!--Table head-->
-
-                <!--Table body-->
-                <tbody>
-                <tr>
-                    <td>data</td>
-                </tr>
-                </tbody>
-                <!--Table body-->
-            </table>
+            <!DOCTYPE html>
+                <html>
+                    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+                    <script src="/js/jquery-ui.min.js"></script>
+                    <script src="/javascripts/utility.js"></script>
+                    <link rel="stylesheet" href="/stylesheets/crowd-2.css">
+                    <script src="/javascripts/crowd-2.js"></script>
+                    <!-- #home_pitcher-->
+                    <table id="home_pitcher">
+                        <thead>
+                            <tr>
+                                <th>NAME</th>
+                                <thWIN_LOSE_SAVE></th>
+                                <th>INNING_PITCHED</th>
+                                <th>BATS</th>
+                                <th>EARNED_HIT</th>
+                                <th>EARNED_RUN</th>
+                                <th>ALLOWED_RUN</th>
+                                <th>WALK</th>
+                                <thSTRIKE_OUT></th>
+                                <th>EARNED_HOME_RUN</th>
+                                <th>EARNED_RUN_AVERAGE</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </html>
             <!--Table-->
         </div>
 
@@ -75,23 +99,17 @@
 
         <div class="col-sm-4 border">
             <!--Table-->
-            <table class="table">
-                <!--Table head-->
-                <thead>
-                <tr>
-                    <th  class=" text-center">txt2</th>
-                </tr>
-                </thead>
-                <!--Table head-->
-
-                <!--Table body-->
-                <tbody>
-                <tr>
-                    <td>data</td>
-                </tr>
-                </tbody>
-                <!--Table body-->
-            </table>
+            <!DOCTYPE html>
+            <html>
+                <link rel="stylesheet" href="/css/jquery-ui.min.css">
+                <script src="/js/jquery-ui.min.js"></script>
+                <script src="/javascripts/utility.js"></script>
+                <link rel="stylesheet" href="/stylesheets/crowd-2.css">
+                <script src="/javascripts/crowd-2.js"></script>
+                        <!-- #away_pitcher-->
+                        <table id="away_pitcher">
+                        </table>
+            </html>
             <!--Table-->
         </div>
 
@@ -156,10 +174,6 @@
 <footer>
     <%- include('include/footer.ejs') %>
 </footer>
-
-
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
