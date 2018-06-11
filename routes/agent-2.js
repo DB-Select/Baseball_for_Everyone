@@ -7,9 +7,9 @@ router.get('/', function(req, res, next) {
   res.render('agent-2', { title: 'Express' });
 });
 
-router.get('/pitcher_salary_list/:player_id', function(req, res, next){
-  var player_id_list;
-  var player_id = req.params.player_id;
+router.get('/pitcher_salary_list', function(req, res, next){
+  
+  
   var query = "SELECT tbl1.name,\
         count(pl.player_id) as G,\
         sum(CASE WHEN (pl.WIN_LOSE_SAVE = 'W') THEN 1 ELSE 0 END) AS WIN,\
@@ -38,7 +38,7 @@ router.get('/pitcher_salary_list/:player_id', function(req, res, next){
   ORDER BY SALARY ASC;";
 
   dbModule.withConnection(dbModule.pool, function(connection, next){
-    connection.query(query, [player_id, player_id], function(err, rows){
+    connection.query(query, [req.query.player_id,req.query.player_id], function(err, rows){
       if(err){
         return next(err,'GET tables error');
       } else {
@@ -47,7 +47,7 @@ router.get('/pitcher_salary_list/:player_id', function(req, res, next){
       });
     }, function(err, message, rows){
       if(err){
-        console.log("111");
+        console.log(req.query.player_id);
         
         res.status(400).json({
           'code': -1,
@@ -56,7 +56,7 @@ router.get('/pitcher_salary_list/:player_id', function(req, res, next){
         });
       }
       else {
-        console.log("222");
+        console.log(rows);
         
         res.status(200).json({
           'code': 0,

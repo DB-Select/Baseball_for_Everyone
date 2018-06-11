@@ -2,15 +2,22 @@
 <html>
 <head>
     <!--css load-->
-    <div id="config"></div>
-    <head>
-        <div id="config"></div>
-        <link rel="stylesheet" href="/stylesheets/style.css"> 
-        <link rel="stylesheet" href="/css/bootstrap.min.css"> 
-        <script src="/js/jquery.min.js"></script> 
-        <script src="/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/stylesheets/agent-2.css">
-      </head>
+    <div>
+        <%- include('include/config.ejs') %>
+    </div>
+
+    
+    <link rel="stylesheet" href="/stylesheets/style.css"> 
+    <link rel="stylesheet" href="/css/bootstrap.min.css"> 
+    <script src="/js/jquery.min.js"></script> 
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/agent-2.css">
+    <link href="/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="/javascripts/agent-2.js"></script>
+    
 </head>
 
 <body>
@@ -26,25 +33,32 @@
 <div class="container">
     <div id="section2" class="row text-center">
         <div class="col-sm-9 border">
-            <!--Table-->
-            <table class="table">
+        
+            
+                <!--Table-->
+            <table class="display" id="pit_sal" cellspacing="0" width="100%">
 
-                <!--Table head-->
                 <thead>
-                <tr>
-                    <th>투수 Attribute</th>
-                    <th>SALARY</th>
-                </tr>
-                </thead>
-                <!--Table head-->
+                    <tr>
+                        <th>NAME</th>
+                        <th>G</th>
+                        <th>WIN</th>
+                        <th>LOSE</th>
+                        <th>SAVE</th>
+                        <th>HOLD</th>
+                        <th>ER</th>
+                        <th>IP</th>
+                        <th>CG</th>
+                        <th>H</th>
+                        <th>NP</th>
+                        <th>ERA</th>
+                        <th>DOBLE</th>
+                        <th>TRIPLE</th>
+                        <th>HR</th>
+                        <th>SALARY</th>
 
-                <!--Table body-->
-                <tbody>
-                <tr>
-                    <td>data</td>
-                    <td>data</td>
-                </tr>
-                </tbody>
+                    </tr>
+                </thead>
                 <!--Table body-->
             </table>
             <!--Table-->
@@ -64,9 +78,6 @@
     <%- include('include/footer.ejs') %>
 </footer>
 
-<!--추후 템플릿 엔진 사용 시 불러오도록 구현하세요.-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
