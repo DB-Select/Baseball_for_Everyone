@@ -189,3 +189,4 @@ router.get('/away_hitter_record', function (req, res, next) {
     });
 });
 
+module.exports = router;

@@ -302,5 +302,16 @@ $.ajax({
     }
 });
 
+$(function () {
+    $(".btn-primary").click(function () {
+        if (getUrlVars['amIHome']== 1) {
+            document.location.href
+             = '/crowd-1?teamID=' + getUrlVars['homeID'];
+        } else {
+            document.location.href
+             = '/crowd-1?teamID=' + getUrlVars['awayID'];
+        }
+    });
+});
 
 module.exports = router;
