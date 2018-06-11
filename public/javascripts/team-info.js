@@ -5,11 +5,11 @@ $(function () {
 
 function changeTeam(teamID) {
     $.ajax({
-        url: '/agent-1/team-info/' + teamID,
+        url: '/team-info/' + teamID,
         type: 'get',
         success: function (row) {
             row = row.result;
-            console.log(row);
+            // console.log(row);
             var head = $('<thead/>')
                 .appendTo($("#teamInfoTable"));
             var trHead = $('<tr/>')
