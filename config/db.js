@@ -6,6 +6,7 @@ var pool = mysql.createPool({
     user     : 'root',
     password : 'jiyun656656',
     database : 'Baseball',
+    port     : 3306,
     waitForConnections : false
 });
 
