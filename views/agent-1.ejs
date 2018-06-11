@@ -83,41 +83,7 @@
 
         <div id="section3" class="row text-center">
             <div class="col-sm-12 border">
-                <!--Table-->
-                <table class="table">
-                    <!--Table head-->
-                    <thead>
-                        <tr>
-                            <th>순위</th>
-                            <th>팀이름</th>
-                            <th>총경기수</th>
-                            <th>승</th>
-                            <th>무</th>
-                            <th>패</th>
-                            <th>승률</th>
-                            <th>게임차</th>
-                            <th>최근10경기</th>
-                        </tr>
-                    </thead>
-                    <!--Table head-->
-
-                    <!--Table body-->
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>한화</td>
-                            <td>30</td>
-                            <td>*</td>
-                            <td>*</td>
-                            <td>V</td>
-                            <td>33%</td>
-                            <td>23</td>
-                            <td>data</td>
-                        </tr>
-                    </tbody>
-                    <!--Table body-->
-                </table>
-                <!--Table-->
+                <%- include('include/team-info.ejs') %>
             </div>
         </div>
 
@@ -168,27 +134,12 @@
                 <!--Table-->
             </div>
         </div>
-
-
-
-
     </div>
-
     <hr>
-
     <!-- Footer -->
     <footer>
         <%- include('include/footer.ejs') %>
     </footer>
-
-    <script>
-        /*      추후 템플릿 엔진 사용 시 불러오도록 구현하세요.*/
-        $(document).ready(function () {
-            $("#config").load("layout/config.html");
-            $("#header").load("layout/header-agent.html");
-            $("#footer").load("layout/footer.html");
-        });
-    </script>
 </body>
 
 </html>
