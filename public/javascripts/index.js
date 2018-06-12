@@ -4,7 +4,7 @@ $(function () {
             document.location.href
              = $(element.currentTarget).find('img').attr('src').split('.')[0].split('/').pop()
              +"-1?teamID="+$('#team .ui-selected').first().data().value;
-        } else {
+       } else {
             alert('팀을 선택해 주세요.');
         }
     });
