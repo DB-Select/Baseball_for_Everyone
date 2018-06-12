@@ -68,7 +68,7 @@ router.get('/hitter_list', function (req, res, next) {
                         h.sacrifice_hit AS SH,\
                         h.sacrifice_fly AS SF,\
                         concat(h.salary , '만원') AS SALARY,\
-                        (sum(hl.hit)/sum(h.at_bat)) AS AVG\
+                        coalesce((sum(hl.hit)/sum(h.at_bat)),0) AS AVG\
                 FROM	hitter h, hitter_lineup hl\
                 WHERE	(h.player_id = hl.player_id) AND (h.team_id = ?)\
                 GROUP BY h.player_id\
