@@ -8,8 +8,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/pitcher_salary_list', function(req, res, next){
-  
-  
   var query = "SELECT tbl1.name,\
         count(pl.player_id) as G,\
         sum(CASE WHEN (pl.WIN_LOSE_SAVE = 'W') THEN 1 ELSE 0 END) AS WIN,\
