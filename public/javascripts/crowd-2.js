@@ -1,4 +1,12 @@
-var game_id = 252134;//getUrlVars()['gameID'];
+var game_id = getUrlVars()['gameID'];
+var home_id = getUrlVars()['homeID'];
+var away_id = getUrlVars()['awayID'];
+var is_home = getUrlVars()['amIHome'];
+
+//function moveToPrevious(backBtn){
+//
+//}
+
 $.ajax({
     url: '/crowd-2/game_record',
     type: 'get',
@@ -304,14 +312,12 @@ $.ajax({
 
 $(function () {
     $(".btn-primary").click(function () {
-        if (getUrlVars['amIHome']== 1) {
-            document.location.href
-             = '/crowd-1?teamID=' + getUrlVars['homeID'];
+        if (is_home == true) {
+            location.href
+             = '/crowd-1?teamID=' + home_id;
         } else {
-            document.location.href
-             = '/crowd-1?teamID=' + getUrlVars['awayID'];
+            location.href
+             = '/crowd-1?teamID=' + away_id;
         }
     });
 });
-
-module.exports = router;

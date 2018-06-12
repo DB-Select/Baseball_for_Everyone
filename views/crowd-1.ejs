@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<head>
+    <!--css load-->
+    <config>
+        <%- include('include/config.ejs') %>
+    </config>
+
+    <head>
+
+        <!--<script src="/js/jquery-ui.min.js"></script>-->
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link href="/css/jquery.dataTables.css" rel="stylesheet">
+        <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
+
+        <script src="/js/jquery.js"></script>
+        <script src="js/jquery.dataTables.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/stylesheets/crowd-1.css">
+
+
+        <script src="/javascripts/crowd-1.js"></script>
+    </head>
+
+    <script>
+        $(document).ready(function () {
+            $("#my").click(function () {
+                $("#awaybutton").hide();
+                $("#showbutton").show();
+            });
+            $("#away").click(function () {
+                $("#awaybutton").show();
+                $("#showbutton").hide();
+            });
+        });
+    </script>
+</head>
+
+
+
+
+<body>
+    <!-- Page Header -->
+    <header>
+        <%- include('include/header-crowd.ejs') %>
+    </header>
+
+    <hr>
+    <select-team>
+        <%- include('include/select-team.ejs') %>
+    </select-team>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <div id="section3" class="row text-center">
+
+
+
+            <div class="col-sm border" style="background-color:rgb(114, 114, 180);" id="my">
+                <p style="font-size:30px;">내팀 최근 5경기</p>
+            </div>
+            <div class="col-sm border" style="background-color:rgb(114, 114, 180);" id="away">
+                <p style="font-size:30px">상대 전적</p>
+            </div>
+        </div>
+
+
+
+        <div id="section4" class="row text-center">
+            <div class="col-sm border" id="showbutton">
+<!-- 여기 -->
+            </div>
+            <div class="col-sm border" id="awaybutton" style="display:none;">
+                <div class="input-group">
+                    <select class="custom-select" name="oppSelect" id="oppSelect1"></select>
+                </div>
+                <!--Table-->
+                <table class="display" id="relative-record">
+
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <th>일시</th>
+                            <th>홈팀</th>
+                            <th>점수</th>
+                            <th></th>
+                            <th>점수</th>
+                            <th>원정팀</th>
+                            <th>button</th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+                    <!-- 눈깔버튼 입니다 
+                                    <a href="crowd-2.html">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </a>
+                                -->
+                </table>
+                <!--Table-->
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <%- include('include/footer.ejs') %>
+    </footer>
+</body>
+
+</html>

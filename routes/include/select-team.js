@@ -6,7 +6,7 @@ var dbModule = require('../../config/db.js');
 router.get('/', function (req, res, next) {
     var getRows;
     dbModule.withConnection(dbModule.pool, function (connection, next) {
-        connection.query('select id from team', function (err, rows) {
+        connection.query('select name, id from team', function (err, rows) {
             if (err) {
                 return next(err, 'GET select team error.');
             }
