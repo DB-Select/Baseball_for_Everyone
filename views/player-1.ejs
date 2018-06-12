@@ -1,294 +1,270 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <div>
-            <%- include('include/config.ejs') %>
-        </div>
+<head>
+    <div>
+        <%- include('include/config.ejs') %>
+    </div>
 
-        <link rel="stylesheet" href="/stylesheets/style.css"> 
-        <link rel="stylesheet" href="/css/bootstrap.min.css"> 
-        <link href="/css/jquery.dataTables.css" rel="stylesheet">
-        <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
-        
-        <script src="/js/jquery.js"></script> 
-        <script src="js/jquery.dataTables.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/stylesheets/player-1.css">
-        
-        
-        <script src="/javascripts/player-1.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
 
-        <script>
-            $(document).ready(function(){
-                $("#pitcher").click(function(){
-                    $("#pitcher_box").show();
-                    $("#pithit_box").hide();
-                    $("#hitter_box").hide();
-                });
-                $("#hitter").click(function(){
-                    $("#pitcher_box").hide();
-                    $("#pithit_box").hide();
-                    $("#hitter_box").show();
-                });
-                $("#hitversepit").click(function(){
-                    $("#pitcher_box").hide();
-                    $("#pithit_box").show();
-                    $("#hitter_box").hide();
-                });
+    <script src="/js/jquery.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/player-1.css">
+
+
+    <script src="/javascripts/player-1.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#pitcher").click(function () {
+                $("#pitcher_box").show();
+                $("#pithit_box").hide();
+                $("#hitter_box").hide();
             });
-        </script>
-         </head>
+            $("#hitter").click(function () {
+                $("#pitcher_box").hide();
+                $("#pithit_box").hide();
+                $("#hitter_box").show();
+            });
+            $("#hitversepit").click(function () {
+                $("#pitcher_box").hide();
+                $("#pithit_box").show();
+                $("#hitter_box").hide();
+            });
+        });
+    </script>
+</head>
 
 <body>
 
-<!-- Page Header -->
-<header>
-    <%- include('include/header-player.ejs') %>
-</header>
+    <!-- Page Header -->
+    <header>
+        <%- include('include/header-player.ejs') %>
+    </header>
 
-<hr>
+    <hr>
 
-<!-- Main Content -->
-<div class="container">
-    <section2>
-        <%- include('include/select-team.ejs') %>
-    </section2>
+    <!-- Main Content -->
+    <div class="container">
+        <section2>
+            <%- include('include/select-team.ejs') %>
+        </section2>
 
-    <div id="section3" class="row text-center">
-        <div class="col-sm-12 border">
+        <div id="section3" class="row text-center">
+            <div class="col-sm-12 border">
 
-            <!--Table-->
-            <table class="table">
-                <!--Table head-->
-                <thead>
-                <tr>
-                    <th>순위</th>
-                    <th>팀이름</th>
-                    <th>총경기수</th>
-                    <th>승</th>
-                    <th>무</th>
-                    <th>패</th>
-                    <th>승률</th>
-                    <th>게임차</th>
-                    <th>최근10경기</th>
-                </tr>
-                </thead>
-                <!--Table head-->
-
-                <!--Table body-->
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>한화</td>
-                    <td>30</td>
-                    <td>*</td>
-                    <td>*</td>
-                    <td>V</td>
-                    <td>33%</td>
-                    <td>23</td>
-                    <td>data</td>
-                </tr>
-                </tbody>
-                <!--Table body-->
-            </table>
-            <!--Table-->
-        </div>
-    </div>
-
-    
-    <div id="section3" class="row">
-                <div id="section4" class="row">
-                            <a href="#" class="btn btn-primary btn-sm active" id = "pitcher" role="button" aria-pressed="true">투수</a>
-                            <a href="#" class="btn btn-primary btn-sm active" id = "hitter" role="button" aria-pressed="true">타자</a>
-                            <a href="#" class="btn btn-primary btn-sm active" id = "hitversepit" role="button" aria-pressed="true">투수vs타자</a>
-                 </div>
-    </div>
-
-
-<!--pithcer table 출력-->
-    <div id="section5" class="row text-center">
-        <div class="col-sm-12 border" id = "pitcher_box">
-            <!--Table-->
-            <table class="table" id= "pit_li" cellspacing="0" width="100%">
-                <!--Table head-->
-                <thead>
-                <tr>
-                    <!--active : blue-->
-                    <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
-                        <th>NAME</th>
-                        <th>WIN</th>
-                        <th>LOSE</th>
-                        <th>SAVE</th>
-                        <th>HOLD</th>
-                        <th>ER</th>
-                        <th>IP</th>
-                        <th>CG</th>
-                        <th>H</th>
-                        <th>NP</th>
-                        <th>ERA</th>
-                        <th>DOBLE</th>
-                        <th>TRIPLE</th>
-                        <th>G</th>
-                        <th>SALARY</th>
-                </tr>
-                </thead>
-                <!--Table head-->
-            </table>
-            <!--Table-->
-        </div>
-    </div>
-
-
-<!--hitter table 테이블-->
-    <div id="section5" class="row text-center">
-        <div class="col-sm-12 border" id = "hitter_box" style="display:none">
-            
-            <!--Table-->
-            <table class="table" id= "hit_li" cellspacing="0" width="100%">
-                <!--Table head-->
-                <thead>
-                <tr>
-                    <!--active : blue-->
-                    <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
-                        <th>NAME</th>
-                        <th>PA</th>
-                        <th>AB</th>
-                        <th>DOBLE</th>
-                        <th>TRIPLE</th>
-                        <th>SB</th>
-                        <th>CS</th>
-                        <th>SH</th>
-                        <th>SF</th>
-                        <th>SALARY</th>
-                        <th>AVG</th>
-                </tr>
-                </thead>
-                <!--Table head-->
-            </table>
-            <!--Table-->
-        </div>
-    </div>
-
-
-
-<!--아래는 투타테이블-->
-<div id="section5" class="row text-center" >
-        <div class="col-sm-12 border"  id = "pithit_box" style="display:none">
-            <div class="input-group" >
-                    <select class="custom-select" id="inputGroupSelect04">
-                      <option selected>투수팀 선택</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="3">4</option>
-                      <option value="3">5</option>
-                    </select>
-                        <select class="custom-select" id="inputGroupSelect04">
-                        <option selected>투수 선택</option>
-                        <option value="1">정지윤</option>
-                        <option value="2">지유니</option>
-                        <option value="3">쩡쯔룬</option>
-                        <option value="3">찌윤이</option>
-                        <option value="3">찌</option>
-                        </select>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button">확인</button>
-                        </div>
-            </div>
-
-            <!--Table-->
-            <table class="table">
-                <!--Table head-->
-                <thead>
-                <tr>
-                    <!--active : blue-->
-                    <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
-                    <th>NAME</th>
-                    <th>WIN</th>
-                    <th>LOSE</th>
-                    <th>SAVE</th>
-                    <th>HOLD</th>
-                    <th>ER</th>
-                    <th>IP</th>
-                    <th>CG</th>
-                    <th>H</th>
-                    <th>NP</th>
-                    <th>ERA</th>
-                    <th>DOBLE</th>
-                    <th>TRIPLE</th>
-                    <th>G</th>
-                    <th>SALARY</th>
-
-
-                </tr>
-                </thead>
-                <!--Table head-->
-
-               
-            </table>
-            <!--Table-->
-
-            <div class="input-group" >
-                    <select class="custom-select" id="inputGroupSelect04">
-                      <option selected>타자팀 선택</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="3">4</option>
-                      <option value="3">5</option>
-                    </select>
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">확인</button>
-                    </div>
-            </div>
-            <!--Table-->
-            <table class="table">
+                <!--Table-->
+                <table class="table">
                     <!--Table head-->
                     <thead>
-                    <tr>
-                        <!--active : blue-->
-                        <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
-                        <th width="10%">순위<i class="fa fa-sort fa-lg" aria-hidden="true"></i>
-                        <th width="20%">선수명<i class="fa fa-sort" aria-hidden="true"></i></th>
-                        <th width="60%">투/타 별 속성<i class="fa fa-sort" aria-hidden="true"></i></th>
-                        <th width="10%">*</th>
-                    </tr>
+                        <tr>
+                            <th>순위</th>
+                            <th>팀이름</th>
+                            <th>총경기수</th>
+                            <th>승</th>
+                            <th>무</th>
+                            <th>패</th>
+                            <th>승률</th>
+                            <th>게임차</th>
+                            <th>최근10경기</th>
+                        </tr>
                     </thead>
                     <!--Table head-->
-    
+
                     <!--Table body-->
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>배준기</td>
-                        <td>투/타 별 속성</td>
-                        <td><a href="player-2.html"><i class="fa fa-eye" aria-hidden="true"></i></a> </td>
-    
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>김가가</td>
-                        <td>투/타 별 속성</td>
-                        <td><a href="player-3.html"><i class="fa fa-eye" aria-hidden="true"></i></a> </td>
-    
-                    </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>한화</td>
+                            <td>30</td>
+                            <td>*</td>
+                            <td>*</td>
+                            <td>V</td>
+                            <td>33%</td>
+                            <td>23</td>
+                            <td>data</td>
+                        </tr>
                     </tbody>
                     <!--Table body-->
                 </table>
                 <!--Table-->
+            </div>
         </div>
+
+
+        <div id="section3" class="row">
+            <div id="section4" class="row">
+                <a href="#" class="btn btn-primary btn-sm active" id="pitcher" role="button" aria-pressed="true">투수</a>
+                <a href="#" class="btn btn-primary btn-sm active" id="hitter" role="button" aria-pressed="true">타자</a>
+                <a href="#" class="btn btn-primary btn-sm active" id="hitversepit" role="button" aria-pressed="true">투수vs타자</a>
+            </div>
+        </div>
+
+
+        <!--pithcer table 출력-->
+        <div id="section5" class="row text-center">
+            <div class="col-sm-12 border" id="pitcher_box">
+                <!--Table-->
+                <table class="table" id="pit_li" cellspacing="0" width="100%">
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <!--active : blue-->
+                            <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
+                            <th>NAME</th>
+                            <th>WIN</th>
+                            <th>LOSE</th>
+                            <th>SAVE</th>
+                            <th>HOLD</th>
+                            <th>ER</th>
+                            <th>IP</th>
+                            <th>CG</th>
+                            <th>H</th>
+                            <th>NP</th>
+                            <th>ERA</th>
+                            <th>DOBLE</th>
+                            <th>TRIPLE</th>
+                            <th>G</th>
+                            <th>SALARY</th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+                </table>
+                <!--Table-->
+            </div>
+        </div>
+
+
+        <!--hitter table 테이블-->
+        <div id="section5" class="row text-center">
+            <div class="col-sm-12 border" id="hitter_box" style="display:none">
+
+                <!--Table-->
+                <table class="table" id="hit_li" cellspacing="0" width="100%">
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <!--active : blue-->
+                            <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
+                            <th>NAME</th>
+                            <th>PA</th>
+                            <th>AB</th>
+                            <th>DOBLE</th>
+                            <th>TRIPLE</th>
+                            <th>SB</th>
+                            <th>CS</th>
+                            <th>SH</th>
+                            <th>SF</th>
+                            <th>SALARY</th>
+                            <th>AVG</th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+                </table>
+                <!--Table-->
+            </div>
+        </div>
+
+
+        <!--아래는 투타테이블-->
+        <div id="section5" class="row text-center">
+            <div class="col-sm-12 border" id="pithit_box" style="display:none">
+                <div class="input-group">
+                    <select class="custom-select" name="teamSelect" id="inputGroupSelect04">
+                    </select>
+
+                    <select class="custom-select" id="inputGroupSelect05">
+                    </select>
+                </div>
+
+                <!--Table-->
+                <table class="table" id = "resultInfo">
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <!--active : blue-->
+                            <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
+                            <th>NAME</th>
+                            <th>WIN</th>
+                            <th>LOSE</th>
+                            <th>SAVE</th>
+                            <th>HOLD</th>
+                            <th>ER</th>
+                            <th>IP</th>
+                            <th>CG</th>
+                            <th>H</th>
+                            <th>NP</th>
+                            <th>ERA</th>
+                            <th>DOBLE</th>
+                            <th>TRIPLE</th>
+                            <th>G</th>
+                            <th>SALARY</th>
+
+
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+
+
+                </table>
+                <!--Table-->
+
+                <div class="input-group">
+                    <select class="custom-select" id="inputGroupSelect04">
+                        <option selected>타자팀 선택</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                        <option value="3">5</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">확인</button>
+                    </div>
+                </div>
+                <!--Table-->
+                <table class="table">
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                                <th>NAME</th>
+                                <th>WIN</th>
+                                <th>LOSE</th>
+                                <th>SAVE</th>
+                                <th>HOLD</th>
+                                <th>ER</th>
+                                <th>IP</th>
+                                <th>CG</th>
+                                <th>H</th>
+                                <th>NP</th>
+                                <th>ERA</th>
+                                <th>DOBLE</th>
+                                <th>TRIPLE</th>
+                                <th>G</th>
+                                <th>SALARY</th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+
+                </table>
+                <!--Table-->
+            </div>
+        </div>
+
+
     </div>
 
+    <hr>
 
-</div>
-
-<hr>
-
-<!-- Footer -->
-<footer>
-    <%- include('include/footer.ejs') %>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <%- include('include/footer.ejs') %>
+    </footer>
 
 
 </body>
