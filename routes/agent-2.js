@@ -21,11 +21,11 @@ router.get('/pitcher_salary_list', function(req, res, next){
         sum(case when (pl.is_home = FALSE) AND (pl.inning_pitched >= 9) then 1 else 0 end) +sum(case when (pl.is_home = TRUE) AND (pl.inning_pitched >= 8) then 1 else 0 end) AS CG,\
         tbl1.hit AS H,\
         tbl1.number_of_pitching AS NP,\
-        sum(pl.earned_run)/(sum(pl.inning_pitched)/9) AS ERA,\
+        round(sum(pl.earned_run)/(sum(pl.inning_pitched)/9),2) AS ERA,\
         tbl1.doble AS DOBLE,\
         tbl1.triple AS TRIPLE,\
         sum(pl.EARNED_HOME_RUN) AS HR,\
-        tbl1.salary AS SALARY \
+        concat(tbl1.salary,'만원') AS SALARY \
   FROM (SELECT    p3.* \
         FROM   baseball.pitcher p3 \
         WHERE   p3.salary BETWEEN (SELECT p2.salary-2000 \
@@ -47,8 +47,6 @@ router.get('/pitcher_salary_list', function(req, res, next){
       });
     }, function(err, message, rows){
       if(err){
-        console.log(req.query.player_id);
-        
         res.status(400).json({
           'code': -1,
           'msg': 'query error',
@@ -56,8 +54,6 @@ router.get('/pitcher_salary_list', function(req, res, next){
         });
       }
       else {
-        console.log(rows);
-        
         res.status(200).json({
           'code': 0,
           'msg': 'suc',
