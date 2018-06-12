@@ -2,57 +2,36 @@
 <html>
 
     <head>
-        <config>
+        <div>
             <%- include('include/config.ejs') %>
-        </config>
-            <div id="config"></div>
-            <script srt="javascripts/player.js"></script>
-            <script src="js/bootstrap.bundle.min.js"></script>
-            <script src="javascripts/player-1.js"></script>
-            <script src="/js/jquery.jcalendar.js"></script>
-            <script src="/js/jquery.jexcel.js"></script>
+        </div>
 
-
-            <script src="/js/jquery.min.js"></script> 
-            <script src="/js/bootstrap.min.js"></script>
-            <link rel="stylesheet" href="/stylesheets/style.css"> 
-            <link rel="stylesheet" href="/css/bootstrap.min.css"> 
-            
-
-            <style>
-                /*section2*/
-                #section2{
-                margin-top: 30px;
-                }
-                #section2 ul{
-                list-style:none;
-                margin:0;
-                padding:0;
-                }
-                #section2 ul li{
-                margin: 0 0 0 0;
-                padding: 0 0 0 0;
-                border : 0;
-                float: left;
-                border: 1px solid;
-                width: 10%;
-                }
-                #section2 ul li img{
-                width: 100%;
-                }
+        <link rel="stylesheet" href="/stylesheets/style.css"> 
+        <link rel="stylesheet" href="/css/bootstrap.min.css"> 
+        <link href="/css/jquery.dataTables.css" rel="stylesheet">
+        <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
         
-                /*section3*/
-                #section3{
-                margin-top: 30px;
-                }
-                #section3 div{
-                padding: 20px;
-                }
-                #section3 div img{
-                width: 100%;
-                }
-            </style>
-            </head>
+        <script src="/js/jquery.js"></script> 
+        <script src="js/jquery.dataTables.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/stylesheets/player-1.css">
+        
+        
+        <script src="/javascripts/player-1.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("#hitterpitcher").click(function(){
+                    $("#pitcher").show();
+                    $("#pithit").hide();
+                });
+                $("#hitversepit").click(function(){
+                    $("#pithit").show();
+                    $("#pitcher").hide();
+                });
+            });
+        </script>
+         </head>
 
 <body>
 
@@ -112,18 +91,7 @@
 
     
     <div id="section3" class="row">
-            <script>
-                    $(document).ready(function(){
-                        $("#hitterpitcher").click(function(){
-                            $("#pitcher").show();
-                            $("#pithit").hide();
-                        });
-                        $("#hitversepit").click(function(){
-                            $("#pithit").show();
-                            $("#pitcher").hide();
-                        });
-                    });
-            </script>
+            
                     
                 <div id="section4" class="row">
                             <a href="#" class="btn btn-primary btn-sm active" id = "hitterpitcher" role="button" aria-pressed="true">투수</a>
@@ -134,43 +102,33 @@
 
 
 
-  
-
     <div id="section5" class="row text-center">
-        <div class="col-sm-12 border" id = "pitcher" >
+        <div class="col-sm-12 border" id = "pitcher">
             <!--Table-->
-            <table class="table">
+            <table class="table" id= "pit_li" cellspacing="0" width="100%">
                 <!--Table head-->
                 <thead>
                 <tr>
                     <!--active : blue-->
                     <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
-                    <th width="10%">순위<i class="fa fa-sort fa-lg" aria-hidden="true"></i>
-                    <th width="20%">선수명<i class="fa fa-sort" aria-hidden="true"></i></th>
-                    <th width="60%">투/타 별 속성<i class="fa fa-sort" aria-hidden="true"></i></th>
-                    <th width="10%">*</th>
+                        <th>NAME</th>
+                        <th>WIN</th>
+                        <th>LOSE</th>
+                        <th>SAVE</th>
+                        <th>HOLD</th>
+                        <th>ER</th>
+                        <th>IP</th>
+                        <th>CG</th>
+                        <th>H</th>
+                        <th>NP</th>
+                        <th>ERA</th>
+                        <th>DOBLE</th>
+                        <th>TRIPLE</th>
+                        <th>G</th>
+                        <th>SALARY</th>
                 </tr>
                 </thead>
                 <!--Table head-->
-
-                <!--Table body-->
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>배준기</td>
-                    <td>투/타 별 속성</td>
-                    <td><a href="player-2.html"><i class="fa fa-eye" aria-hidden="true"></i></a> </td>
-
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>김가가</td>
-                    <td>투/타 별 속성</td>
-                    <td><a href="player-3.html"><i class="fa fa-eye" aria-hidden="true"></i></a> </td>
-
-                </tr>
-                </tbody>
-                <!--Table body-->
             </table>
             <!--Table-->
         </div>
