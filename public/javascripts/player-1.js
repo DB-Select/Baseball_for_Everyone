@@ -18,6 +18,12 @@ function setPitcherTeamOption(teamID) {
     });
 }
 
+function moveToDetail(params) {
+    // isPitcher / playerID / teamID
+    location.href = 'player-2?playerID=' + $(params).parent().parent().data().value
+        + '&isPitcher=' + $('#pitcher_box').is(':visible') + '&teamID=' + $("#inputGroupSelect04").find("option:selected").data().value;
+}
+
 //팀아이디와 pitcher_id로 정보 출력하기
 var pithitPitcherTable;
 function setPitHitPitcherTable(playerID) {
@@ -55,14 +61,18 @@ function setPitHitPitcherTable(playerID) {
 }
 
 
-$(function () {
-    var team_id = getUrlVars()['teamID'];
+var pithitHitterTable;
+function setPitHitHitterTable(playerID) {
     $.ajax({
-        url: "/player-1/pitcher_list",
+        url: "/player-1/pithit",
         type: 'get',
-        data: { 'team_id': team_id },
+        data: { 'player_id': playerID },
         success: function (json) {
-            $('#pit_li').DataTable({
+            if (pithitHitterTable && pithitHitterTable.destroy)
+            pithitHitterTable.destroy();
+            pithitHitterTable = $('#resultInfo').DataTable({
+                searching: false,
+                paging: false,
                 data: json.result,
                 "columns": [
                     { "data": "NAME" },
@@ -84,6 +94,71 @@ $(function () {
             });
         }
     });
+}
+
+
+
+
+
+
+
+
+
+
+$(function () {
+    $("#pitcher").click(function () {
+        $("#pitcher_box").show();
+        $("#pithit_box").hide();
+        $("#hitter_box").hide();
+    });
+    $("#hitter").click(function () {
+        $("#pitcher_box").hide();
+        $("#pithit_box").hide();
+        $("#hitter_box").show();
+    });
+    $("#hitversepit").click(function () {
+        $("#pitcher_box").hide();
+        $("#pithit_box").show();
+        $("#hitter_box").hide();
+    });
+
+    var team_id = getUrlVars()['teamID'];
+    $.ajax({
+        url: "/player-1/pitcher_list",
+        type: 'get',
+        data: { 'team_id': team_id },
+        success: function (json) {
+            $('#pit_li').DataTable({
+                data: json.result,
+                createdRow: function (row, data, dataIndex) {
+                    $(row).attr('data-value', data.PLAYER_ID);
+                },
+                columns: [
+                    { "data": "NAME" },
+                    { "data": "WIN" },
+                    { "data": "LOSE" },
+                    { "data": "SAVE" },
+                    { "data": "HOLD" },
+                    { "data": "ER" },
+                    { "data": "IP" },
+                    { "data": "CG" },
+                    { "data": "H" },
+                    { "data": "NP" },
+                    { "data": "ERA" },
+                    { "data": "DOBLE" },
+                    { "data": "TRIPLE" },
+                    { "data": "G" },
+                    { "data": "SALARY" },
+                    { "data": null }
+                ],
+                columnDefs: [{
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": "<button onclick='moveToDetail(this)'>Click!</button>"
+                }]
+            });
+        }
+    });
 
     $.ajax({
         url: "/player-1/hitter_list",
@@ -92,6 +167,9 @@ $(function () {
         success: function (json) {
             $('#hit_li').DataTable({
                 data: json.result,
+                createdRow: function (row, data, dataIndex) {
+                    $(row).attr('data-value', data.player_id);
+                },
                 "columns": [
                     { "data": "NAME" },
                     { "data": "PA" },
@@ -103,8 +181,14 @@ $(function () {
                     { "data": "SH" },
                     { "data": "SF" },
                     { "data": "SALARY" },
-                    { "data": "AVG" }
-                ]
+                    { "data": "AVG" },
+                    { "data": null }
+                ],
+                columnDefs: [{
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": "<button onclick='moveToDetail(this)'>Click!</button>"
+                }]
             });
         }
     });
