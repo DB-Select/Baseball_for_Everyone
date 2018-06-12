@@ -21,13 +21,20 @@
 
         <script>
             $(document).ready(function(){
-                $("#hitterpitcher").click(function(){
-                    $("#pitcher").show();
-                    $("#pithit").hide();
+                $("#pitcher").click(function(){
+                    $("#pitcher_box").show();
+                    $("#pithit_box").hide();
+                    $("#hitter_box").hide();
+                });
+                $("#hitter").click(function(){
+                    $("#pitcher_box").hide();
+                    $("#pithit_box").hide();
+                    $("#hitter_box").show();
                 });
                 $("#hitversepit").click(function(){
-                    $("#pithit").show();
-                    $("#pitcher").hide();
+                    $("#pitcher_box").hide();
+                    $("#pithit_box").show();
+                    $("#hitter_box").hide();
                 });
             });
         </script>
@@ -91,19 +98,17 @@
 
     
     <div id="section3" class="row">
-            
-                    
                 <div id="section4" class="row">
-                            <a href="#" class="btn btn-primary btn-sm active" id = "hitterpitcher" role="button" aria-pressed="true">투수</a>
-                            <a href="#" class="btn btn-primary btn-sm active" id = "hitterpitcher" role="button" aria-pressed="true">타자</a>
+                            <a href="#" class="btn btn-primary btn-sm active" id = "pitcher" role="button" aria-pressed="true">투수</a>
+                            <a href="#" class="btn btn-primary btn-sm active" id = "hitter" role="button" aria-pressed="true">타자</a>
                             <a href="#" class="btn btn-primary btn-sm active" id = "hitversepit" role="button" aria-pressed="true">투수vs타자</a>
                  </div>
     </div>
 
 
-
+<!--pithcer table 출력-->
     <div id="section5" class="row text-center">
-        <div class="col-sm-12 border" id = "pitcher">
+        <div class="col-sm-12 border" id = "pitcher_box">
             <!--Table-->
             <table class="table" id= "pit_li" cellspacing="0" width="100%">
                 <!--Table head-->
@@ -135,10 +140,41 @@
     </div>
 
 
+<!--hitter table 테이블-->
+    <div id="section5" class="row text-center">
+        <div class="col-sm-12 border" id = "hitter_box" style="display:none">
+            
+            <!--Table-->
+            <table class="table" id= "hit_li" cellspacing="0" width="100%">
+                <!--Table head-->
+                <thead>
+                <tr>
+                    <!--active : blue-->
+                    <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
+                        <th>NAME</th>
+                        <th>PA</th>
+                        <th>AB</th>
+                        <th>DOBLE</th>
+                        <th>TRIPLE</th>
+                        <th>SB</th>
+                        <th>CS</th>
+                        <th>SH</th>
+                        <th>SF</th>
+                        <th>SALARY</th>
+                        <th>AVG</th>
+                </tr>
+                </thead>
+                <!--Table head-->
+            </table>
+            <!--Table-->
+        </div>
+    </div>
+
+
 
 <!--아래는 투타테이블-->
 <div id="section5" class="row text-center" >
-        <div class="col-sm-12 border"  id = "pithit" style="display:none">
+        <div class="col-sm-12 border"  id = "pithit_box" style="display:none">
             <div class="input-group" >
                     <select class="custom-select" id="inputGroupSelect04">
                       <option selected>투수팀 선택</option>
@@ -168,58 +204,28 @@
                 <tr>
                     <!--active : blue-->
                     <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
-                    <th width="40%">이름<i class="fa fa-sort fa-lg" aria-hidden="true"></i></th>
-                    <th width="40%">Number of pitching<i class="fa fa-sort" aria-hidden="true"></i></th>
-                    <th width="20%">hit<i class="fa fa-sort" aria-hidden="true"></i></th>
-                    <th width="10%">Double</th>
-                    <th width="10%">Triple</th>
-                    <th width="10%">Salary</th>
-                    <th width="10%">TN</th>
-                    <th width="10%">ERA</th>
-                    <th width="10%">G</th>
-                    <th width="10%">CG</th>
-                    <th width="10%">SHO</th>
-                    <th width="10%">W</th>
-                    <th width="10%">L</th>
-                    <th width="10%">SV</th>
-                    <th width="10%">HLD</th>
-                    <th width="10%">WPCT</th>
-                    <th width="10%">TBF</th>
-                    <th width="10%">IP</th>
-                    <th width="10%">HR</th>
+                    <th>NAME</th>
+                    <th>WIN</th>
+                    <th>LOSE</th>
+                    <th>SAVE</th>
+                    <th>HOLD</th>
+                    <th>ER</th>
+                    <th>IP</th>
+                    <th>CG</th>
+                    <th>H</th>
+                    <th>NP</th>
+                    <th>ERA</th>
+                    <th>DOBLE</th>
+                    <th>TRIPLE</th>
+                    <th>G</th>
+                    <th>SALARY</th>
 
 
                 </tr>
                 </thead>
                 <!--Table head-->
 
-                <!--Table body-->
-                <tbody>
-                <tr>
-                    <td>~~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td>~</td>
-                    <td><a href="player-2.html"><i class="fa fa-eye" aria-hidden="true"></i></a> </td>
-
-                </tr>
-                </tbody>
-                <!--Table body-->
+               
             </table>
             <!--Table-->
 

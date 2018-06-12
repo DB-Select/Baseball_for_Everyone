@@ -27,18 +27,65 @@ router.get('/pitcher_list',function(req,res,next){
                       concat(p1.salary ,'만원')AS SALARY\
                     FROM	(SELECT	*\
                       FROM	pitcher p natural join pitcher_lineup pl) as p1\
-                    WHERE	p1.team_id = ?\
+                    WHERE	p1.team_id =?\
                     GROUP BY p1.player_id;"
   dbModule.withConnection(dbModule.pool, function(connection, next){
     connection.query(query, [req.query.team_id,req.query.team_id], function(err, rows){
       if(err){
         return next(err,'GET tables error');
       } else {
-          console.log(rows);
           return next(err, null, rows);
         }
       });
     }, function(err, message, rows){
+      if(err){
+        res.status(400).json({
+          'code': -1,
+          'msg': 'query error',
+          'result': err
+        });
+      }
+      else {
+        res.status(200).json({
+          
+          'code': 0,
+          'msg': 'suc',
+          'result': rows
+        });
+      }
+    });
+
+});
+
+router.get('/hitter_list',function(req,res,next){
+  var query = "SELECT 	h.name AS NAME,\
+                        h.plate_appearance AS PA,\
+                        h.at_bat AS AB,\
+                        h.double AS DOBLE,\
+                        h.triple AS TRIPLE,\
+                        h.stolen_base AS SB,\
+                        h.caught_stealing AS CS,\
+                        h.sacrifice_hit AS SH,\
+                        h.sacrifice_fly AS SF,\
+                        concat(h.salary , '만원') AS SALARY,\
+                        (sum(hl.hit)/sum(h.at_bat)) AS AVG\
+                FROM	hitter h, hitter_lineup hl\
+                WHERE	(h.player_id = hl.player_id) AND (h.team_id = ?)\
+                GROUP BY h.player_id\
+                ORDER BY h.name;"
+  dbModule.withConnection(dbModule.pool, function(connection, next){
+    connection.query(query, [req.query.team_id,req.query.team_id], function(err, rows){
+      console.log('mhg', err);
+      if(err){
+        console.log(1);
+        return next(err,'GET tables error');
+      } else {
+        console.log(rows);
+          return next(err, null, rows);
+        }
+      });
+    }, function(err, message, rows){
+      console.log(3);
       if(err){
         res.status(400).json({
           'code': -1,
