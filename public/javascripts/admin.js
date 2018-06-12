@@ -54,9 +54,128 @@ function getTable() {
             $('#table').jexcel({
                 data: data,
                 colHeaders: colHeaders,
+                onchange: changeCell,
+                onselection: selectionActive,
                 // colWidths: [300, 80, 100, 60, 120],
                 columns: columns
             });
+        },
+        error: function (result) {
+            console.log(result);
+        }
+    });
+}
+var input =[];
+var deleted_cell;
+var changed_cell = [];
+var isChanged;
+
+
+var setButtonEvent = function(){
+    if(isChanged == true) {
+        update();
+    }
+    else {
+        insert();
+    }
+}
+
+var changeCell = function(instance, cell, value) {
+    isChanged = true;
+    var columnCode = $(instance).jexcel('getColumnNameFromId', $(cell).prop('id')).substr(0,1).charCodeAt(0) - 65;
+    var rowCode = $(instance).jexcel('getColumnNameFromId', $(cell).prop('id'));
+    rowCode = rowCode.substr(1, rowCode.length-1) - 1;
+    var cellName = $(instance).jexcel('getHeader', columnCode);
+    var rowData =  $(instance).jexcel('getRowData', rowCode);
+
+    console.log({
+        player_id: rowData[0],
+        cellName: cellName,
+        value: value
+    });
+    changed_cell=
+        {player_id: rowData[0],
+        cellName: cellName,
+        value: value}
+}
+
+var selectionActive = function(instance, firstColumn, lastColumn) {
+    var cellName1 = $(instance).jexcel('getData', $(firstColumn).prop('id'));
+    console.log(cellName1[0][0]);
+    deleted_cell = cellName1[0][0];
+}
+
+var deleteHitter = function() {
+    var inputData = {
+        hitter_id: deleted_cell
+    }
+    console.log(inputData)
+    console.log('aa')
+    $.ajax({
+        url: '/admin/tables/' + $("#tables").val(),
+        type: 'DELETE',
+        data: inputData,
+        success: function (result) {
+            console.log(inputData);      
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+var update = function(){
+    var inputData = changed_cell;
+    /*
+    changeData : [
+        {"player_id":5,"cellName":'doble,val},
+        {"player_id":5,"cellName":'doble,val},
+    ]
+    */
+    $.ajax({
+        url: '/admin/tables/' + $("#tables").val(),
+        type: 'PUT',
+        dataType:"json",
+        data: inputData,
+        success: function (result) {
+            console.log(inputData);
+            console.log('aaaa');
+            console.log(input[1]);
+            
+        },
+        error: function (result) {
+            console.log(result);
+        }
+    });
+}
+
+var insert = function(){
+    input=$('#table').jexcel('getRowData', -1);
+
+    inputData = {
+        NAME: input[1],
+        TEAM_ID: input[2],
+        PLATE_APPEARANCE: input[3],
+        AT_BAT: input[4],
+        DOBLE: input[5],
+        TRIPLE: input[6],
+        STOLEN_BASE: input[7],
+        CAUGHT_STEALING: input[8],
+        SACRIFICE_HIT: input[9],
+        SACRIFICE_FLY: input[10],
+        SALARY: input[11]
+    };
+    
+    console.log('aa')
+    $.ajax({
+        url: '/admin/tables/' + $("#tables").val(),
+        type: 'post',
+        data: inputData,
+        success: function (result) {
+            console.log(inputData);
+            console.log('aaaa');
+            console.log(input[1]);
+            
         },
         error: function (result) {
             console.log(result);
