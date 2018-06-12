@@ -77,3 +77,11 @@ else {
         }
     })
 }
+
+$(function () {
+    $(".col-sm-3").click(function (element) {
+            document.location.href
+             = $(element.currentTarget).find('img').attr('src').split('.')[0].split('/').pop()
+             +"agent-1?teamID=1041";
+    });
+});
