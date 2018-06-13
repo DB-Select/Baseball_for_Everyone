@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://localhost:3000/player-1?teamID=1043 -->
+<html class="gr__localhost"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head><body style=" width: 1500px;" data-gr-c-s-loaded="true"><div>
+        
+
+<script src="./player-1_files/utility.js"></script>
+<script src="./player-1_files/jquery.min.js"></script>
+<script src="./player-1_files/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="./player-1_files/bootstrap.min.css">
+
+<!-- <link href="vendor/font-awesome/font-awesome.min.css" rel="stylesheet"> -->
+<link href="./player-1_files/font-awesome.min.css" rel="stylesheet">
+<link href="./player-1_files/css" rel="stylesheet" type="text/css">
+<link href="./player-1_files/css(1)" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./player-1_files/bootstrap.min.css">
+<link href="./player-1_files/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./player-1_files/style.css">
+
+
+    </div>
+
+    <link rel="stylesheet" href="./player-1_files/style.css">
+    <link rel="stylesheet" href="./player-1_files/bootstrap.min.css">
+    <link href="./player-1_files/jquery.dataTables.css" rel="stylesheet">
+    <link href="./player-1_files/jquery.dataTables.min.css" rel="stylesheet">
+
+    <script src="./player-1_files/jquery.js"></script>
+    <script src="./player-1_files/jquery.dataTables.js"></script>
+    <script src="./player-1_files/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./player-1_files/player-1.css">
+
+    <script src="./player-1_files/player-1.js"></script>
+
+
+
+    <header>
+        
+
+<div class="container">
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-sm-9 border text-center">
+            <a href="http://localhost:3000/">
+                <img src="./player-1_files/player_header.jpg" class="responsive">
+            </a>
+        </div>
+    </div>
+</div>
+
+    </header>
+
+    <hr>
+    <div class="container">
+        <section2>
+            
+
+<link rel="stylesheet" href="./player-1_files/jquery-ui.min.css">
+<script src="./player-1_files/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="./player-1_files/select-team.css">
+<script src="./player-1_files/select-team.js"></script>
+<div id="section2" class="row">
+    <div class="col-sm-12 border">
+        <ul id="team" class="ui-selectable">
+        <li data-value="1041"><img width="283" height="100" src="./player-1_files/1041.png"></li><li data-value="1042"><img width="283" height="100" src="./player-1_files/1042.png"></li><li data-value="1043" class="ui-selected"><img width="283" height="100" src="./player-1_files/1043.png"></li><li data-value="1044"><img width="283" height="100" src="./player-1_files/1044.png"></li><li data-value="1045"><img width="283" height="100" src="./player-1_files/1045.png"></li><li data-value="1046"><img width="283" height="100" src="./player-1_files/1046.png"></li><li data-value="1047"><img width="283" height="100" src="./player-1_files/1047.png"></li><li data-value="1049"><img width="283" height="100" src="./player-1_files/1049.png"></li><li data-value="10431"><img width="283" height="100" src="./player-1_files/10431.png"></li><li data-value="10848"><img width="283" height="100" src="./player-1_files/10848.png"></li></ul>
+    </div>
+</div>
+
+
+        </section2>
+
+        <div id="section3" class="row text-center">
+            <div class="col-sm-12 border">
+                
+
+<script src="./player-1_files/team-info.js"></script>
+<table class="table" id="teamInfoTable" width="1300px"><thead><tr><th style="width:0px;">Name</th><th style="width:0px;">NoG</th><th style="width:0px;">WR</th><th style="width:0px;">Runs</th><th style="width:0px;">RunsAllowed</th><th style="width:0px;">AverageRuns</th><th style="width:0px;">Hit</th><th style="width:0px;">HomeRun</th><th style="width:0px;">Win</th><th style="width:0px;">Draw</th><th style="width:0px;">Lose</th><th style="width:0px;">latest10Win</th><th style="width:0px;">latest10Draw</th><th style="width:0px;">latest10Lose</th></tr></thead><tbody><tr><td>KIA</td><td>6</td><td>0.50</td><td>38</td><td>46</td><td>6.33</td><td>72</td><td>4</td><td>3</td><td>0</td><td>3</td><td>3</td><td>0</td><td>3</td></tr></tbody></table>
+
+
+            </div>
+        </div>
+
+
+
+        <div id="section3" class="row" style="width:1800px">
+            <div id="section4" class="row">
+                <a class="btn btn-primary btn-sm active" id="pitcher" role="button" aria-pressed="true">투수</a>
+                <a class="btn btn-primary btn-sm active" id="hitter" role="button" aria-pressed="true">타자</a>
+                <a class="btn btn-primary btn-sm active" id="hitversepit" role="button" aria-pressed="true">투수vs타자</a>
+            </div>
+        </div>
+
+
+        <!--pithcer table 출력-->
+        <div id="section5" class="row text-center">
+            <div class="col-sm- border" id="pitcher_box">
+                <!--Table-->
+                <div id="pit_li_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="pit_li_length"><label>Show <select name="pit_li_length" aria-controls="pit_li" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="pit_li_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="pit_li"></label></div><table class="display dataTable no-footer" id="pit_li" role="grid" aria-describedby="pit_li_info" style="width: 1362px;">
+                    <!--Table head-->
+                    <thead>
+                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-sort="ascending" aria-label="NAME: activate to sort column descending" style="width: 48px;">NAME</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="WIN: activate to sort column ascending" style="width: 33px;">WIN</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="LOSE: activate to sort column ascending" style="width: 42px;">LOSE</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="SAVE: activate to sort column ascending" style="width: 42px;">SAVE</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="HOLD: activate to sort column ascending" style="width: 46px;">HOLD</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="ER: activate to sort column ascending" style="width: 21px;">ER</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="IP: activate to sort column ascending" style="width: 16px;">IP</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="CG: activate to sort column ascending" style="width: 24px;">CG</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="H: activate to sort column ascending" style="width: 13px;">H</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="NP: activate to sort column ascending" style="width: 23px;">NP</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="ERA: activate to sort column ascending" style="width: 32px;">ERA</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="DOBLE: activate to sort column ascending" style="width: 54px;">DOBLE</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="TRIPLE: activate to sort column ascending" style="width: 56px;">TRIPLE</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="G: activate to sort column ascending" style="width: 12px;">G</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="SALARY: activate to sort column ascending" style="width: 64px;">SALARY</th><th class="sorting" tabindex="0" aria-controls="pit_li" rowspan="1" colspan="1" aria-label="BUTTON: activate to sort column ascending" style="width: 68px;">BUTTON</th></tr>
+                    </thead>
+                    <!--Table head-->
+                <tbody><tr data-value="197" role="row" class="odd"><td class="sorting_1">김세현</td><td>1</td><td>5</td><td>4</td><td>0</td><td>16</td><td>11</td><td>0</td><td>24</td><td>256</td><td>13.09</td><td>5</td><td>2</td><td>16</td><td>40000만원</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="1579" role="row" class="even"><td class="sorting_1">김유신</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td><td>2.4</td><td>0</td><td>4</td><td>48</td><td>11.25</td><td>1</td><td>0</td><td>4</td><td>2700만원</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="113" role="row" class="odd"><td class="sorting_1">김윤동</td><td>3</td><td>2</td><td>0</td><td>6</td><td>9</td><td>24.7</td><td>0</td><td>19</td><td>472</td><td>3.28</td><td>3</td><td>0</td><td>22</td><td>2700만원</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="1329" role="row" class="even"><td class="sorting_1">문경찬</td><td>0</td><td>0</td><td>0</td><td>0</td><td>11</td><td>14.5</td><td>0</td><td>21</td><td>247</td><td>6.83</td><td>3</td><td>0</td><td>7</td><td>3100만원</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="1345" role="row" class="odd"><td class="sorting_1">박정수</td><td>0</td><td>0</td><td>0</td><td>0</td><td>10</td><td>10</td><td>0</td><td>11</td><td>230</td><td>9</td><td>2</td><td>2</td><td>10</td><td>3300만원</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="108" role="row" class="even"><td class="sorting_1">심동섭</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>2.3</td><td>0</td><td>2</td><td>57</td><td>0</td><td>1</td><td>0</td><td>3</td><td>13000만원</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="104" role="row" class="odd"><td class="sorting_1">양현종</td><td>7</td><td>2</td><td>0</td><td>0</td><td>22</td><td>68.3</td><td>2</td><td>68</td><td>1023</td><td>2.9</td><td>10</td><td>0</td><td>10</td><td>40000만원</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="1548" role="row" class="even"><td class="sorting_1">유승철</td><td>0</td><td>0</td><td>0</td><td>1</td><td>6</td><td>15.4</td><td>0</td><td>20</td><td>367</td><td>3.51</td><td>5</td><td>1</td><td>14</td><td>2800만원</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="1537" role="row" class="odd"><td class="sorting_1">이민우</td><td>1</td><td>3</td><td>0</td><td>1</td><td>18</td><td>16.7</td><td>0</td><td>24</td><td>352</td><td>9.7</td><td>2</td><td>2</td><td>12</td><td>3500만원</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="18" role="row" class="even"><td class="sorting_1">임기영</td><td>2</td><td>4</td><td>0</td><td>0</td><td>22</td><td>31.3</td><td>0</td><td>43</td><td>572</td><td>6.33</td><td>8</td><td>0</td><td>6</td><td>120000만원</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr></tbody></table><div class="dataTables_info" id="pit_li_info" role="status" aria-live="polite">Showing 1 to 10 of 17 entries</div><div class="dataTables_paginate paging_simple_numbers" id="pit_li_paginate"><a class="paginate_button previous disabled" aria-controls="pit_li" data-dt-idx="0" tabindex="0" id="pit_li_previous">Previous</a><span><a class="paginate_button current" aria-controls="pit_li" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="pit_li" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="pit_li" data-dt-idx="3" tabindex="0" id="pit_li_next">Next</a></div></div>
+                <!--Table-->
+            </div>
+        </div>
+
+
+        <!--hitter table 테이블-->
+        <div id="section5" class="row text-center">
+            <div class="col-sm- border" id="hitter_box" style="display:none">
+
+                <!--Table-->
+                <div id="hit_li_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="hit_li_length"><label>Show <select name="hit_li_length" aria-controls="hit_li" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="hit_li_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="hit_li"></label></div><table class="display dataTable no-footer" id="hit_li" role="grid" aria-describedby="hit_li_info" style="width: 0px;">
+                    <!--Table head-->
+                    <thead>
+                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-sort="ascending" aria-label="NAME: activate to sort column descending" style="width: 0px;">NAME</th><th class="sorting" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-label="PA: activate to sort column ascending" style="width: 0px;">PA</th><th class="sorting" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-label="AB: activate to sort column ascending" style="width: 0px;">AB</th><th class="sorting" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-label="DOBLE: activate to sort column ascending" style="width: 0px;">DOBLE</th><th class="sorting" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-label="TRIPLE: activate to sort column ascending" style="width: 0px;">TRIPLE</th><th class="sorting" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-label="SB: activate to sort column ascending" style="width: 0px;">SB</th><th class="sorting" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-label="CS: activate to sort column ascending" style="width: 0px;">CS</th><th class="sorting" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-label="SH: activate to sort column ascending" style="width: 0px;">SH</th><th class="sorting" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-label="SF: activate to sort column ascending" style="width: 0px;">SF</th><th class="sorting" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-label="SALARY: activate to sort column ascending" style="width: 0px;">SALARY</th><th class="sorting" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-label="AVG: activate to sort column ascending" style="width: 0px;">AVG</th><th class="sorting" tabindex="0" aria-controls="hit_li" rowspan="1" colspan="1" aria-label="BUTTON: activate to sort column ascending" style="width: 0px;">BUTTON</th></tr>
+                    </thead>
+                    <!--Table head-->
+                <tbody><tr data-value="22" role="row" class="odd"><td class="sorting_1">김민식</td><td>148</td><td>126</td><td>5</td><td>1</td><td>2</td><td>0</td><td>5</td><td>0</td><td>4500만원</td><td>0.262</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="27" role="row" class="even"><td class="sorting_1">김선빈</td><td>184</td><td>160</td><td>11</td><td>1</td><td>0</td><td>0</td><td>3</td><td>1</td><td>7300만원</td><td>0.319</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="32" role="row" class="odd"><td class="sorting_1">김세현</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>140000만원</td><td></td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="34" role="row" class="even"><td class="sorting_1">김유신</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>70000만원</td><td></td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="45" role="row" class="odd"><td class="sorting_1">김주찬</td><td>190</td><td>170</td><td>12</td><td>0</td><td>2</td><td>1</td><td>1</td><td>4</td><td>2700만원</td><td>0.329</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="46" role="row" class="even"><td class="sorting_1">김주형</td><td>7</td><td>7</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>75000만원</td><td>0.143</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="47" role="row" class="odd"><td class="sorting_1">김지성</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3500만원</td><td></td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="65" role="row" class="even"><td class="sorting_1">나지완</td><td>175</td><td>149</td><td>7</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>6200만원</td><td>0.255</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="74" role="row" class="odd"><td class="sorting_1">문경찬</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>4500만원</td><td></td><td><button onclick="moveToDetail(this)">Click!</button></td></tr><tr data-value="92" role="row" class="even"><td class="sorting_1">박준태</td><td>4</td><td>4</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3100만원</td><td>0</td><td><button onclick="moveToDetail(this)">Click!</button></td></tr></tbody></table><div class="dataTables_info" id="hit_li_info" role="status" aria-live="polite">Showing 1 to 10 of 28 entries</div><div class="dataTables_paginate paging_simple_numbers" id="hit_li_paginate"><a class="paginate_button previous disabled" aria-controls="hit_li" data-dt-idx="0" tabindex="0" id="hit_li_previous">Previous</a><span><a class="paginate_button current" aria-controls="hit_li" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="hit_li" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="hit_li" data-dt-idx="3" tabindex="0">3</a></span><a class="paginate_button next" aria-controls="hit_li" data-dt-idx="4" tabindex="0" id="hit_li_next">Next</a></div></div>
+                <!--Table-->
+            </div>
+        </div>
+
+
+        <!--아래는 투타테이블-->
+        <div id="section5" class="row text-center" style="width:1300px">
+            <div class="col-sm-12 border" id="pithit_box" style="display:none">
+                <div class="input-group">
+                    <select class="custom-select" name="teamSelect" id="inputGroupSelect04">
+                    <option data-value="1041">DOOSAN</option><option data-value="1042">HANHWA</option><option data-value="1043">KIA</option><option data-value="1044">LG</option><option data-value="1045">LOTTE</option><option data-value="1046">SAMSUNG</option><option data-value="1047">SK</option><option data-value="1049">NEXEN</option><option data-value="10431">NC</option><option data-value="10848">KT</option></select>
+
+                    <select class="custom-select" id="inputGroupSelect05"><option data-value="625">이용찬</option><option data-value="630">김강률</option><option data-value="631">홍상삼</option><option data-value="642">변진수</option><option data-value="643">유희관</option><option data-value="677">함덕주</option><option data-value="696">이현승</option><option data-value="697">이현호</option><option data-value="715">김승회</option><option data-value="717">최대성</option><option data-value="784">장원준</option><option data-value="1305">린드블럼</option><option data-value="1435">유재유</option><option data-value="1457">박치국</option><option data-value="1503">이영하</option><option data-value="1549">곽빈</option><option data-value="1550">후랭코프</option><option data-value="1571">김정후</option><option data-value="1577">박신지</option><option data-value="1582">현도훈</option><option data-value="1584">김민규</option></select>
+                </div>
+
+                <!--Table-->
+                <div id="resultInfo_wrapper" class="dataTables_wrapper no-footer"><table class="table dataTable no-footer" id="resultInfo" role="grid" aria-describedby="resultInfo_info" style="width: 0px;">
+                    <!--Table head-->
+                    <thead>
+                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-sort="ascending" aria-label="NAME: activate to sort column descending" style="width: 0px;">NAME</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="WIN: activate to sort column ascending" style="width: 0px;">WIN</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="LOSE: activate to sort column ascending" style="width: 0px;">LOSE</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="SAVE: activate to sort column ascending" style="width: 0px;">SAVE</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="HOLD: activate to sort column ascending" style="width: 0px;">HOLD</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="ER: activate to sort column ascending" style="width: 0px;">ER</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="IP: activate to sort column ascending" style="width: 0px;">IP</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="CG: activate to sort column ascending" style="width: 0px;">CG</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="H: activate to sort column ascending" style="width: 0px;">H</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="NP: activate to sort column ascending" style="width: 0px;">NP</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="ERA: activate to sort column ascending" style="width: 0px;">ERA</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="DOBLE: activate to sort column ascending" style="width: 0px;">DOBLE</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="TRIPLE: activate to sort column ascending" style="width: 0px;">TRIPLE</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="G: activate to sort column ascending" style="width: 0px;">G</th><th class="sorting" tabindex="0" aria-controls="resultInfo" rowspan="1" colspan="1" aria-label="SALARY: activate to sort column ascending" style="width: 0px;">SALARY</th></tr>
+                    </thead>
+                    <!--Table head-->
+
+
+                <tbody><tr role="row" class="odd"><td class="sorting_1">이용찬</td><td>5</td><td>0</td><td>0</td><td>0</td><td>5</td><td>34</td><td>0</td><td>25</td><td>507</td><td>1.32</td><td>1</td><td>1</td><td>6</td><td>18500만원</td></tr></tbody></table><div class="dataTables_info" id="resultInfo_info" role="status" aria-live="polite">Showing 1 to 1 of 1 entries</div></div>
+                <!--Table-->
+
+                <div class="input-group">
+                    <select class="custom-select" id="inputGroupSelect06">
+                    <option data-value="1041">DOOSAN</option><option data-value="1042">HANHWA</option><option data-value="1043">KIA</option><option data-value="1044">LG</option><option data-value="1045">LOTTE</option><option data-value="1046">SAMSUNG</option><option data-value="1047">SK</option><option data-value="1049">NEXEN</option><option data-value="10431">NC</option><option data-value="10848">KT</option></select>
+                </div>
+                <!--Table-->
+                <table class="table" id="pithit">
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <th>Hitter_name</th>
+                            <th>Pitcher_name</th>
+                            <th>PA</th>
+                            <th>AB</th>
+                            <th>H</th>
+                            <th>BA</th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+
+                </table>
+                <!--Table-->
+            </div>
+        </div>
+
+
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        
+
+<!-- Footer -->
+<div class="container">
+    <div class="row" style="width:1500px">
+        <div class="col-lg-8 col-md-10 mx-auto text-right"></div>
+            <p class="copyright text-muted">Copyright © JK Group</p>
+        </div>
+    </div>
+
+
+    </footer>
+
+
+
+
+</body></html>
