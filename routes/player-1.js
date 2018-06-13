@@ -58,7 +58,8 @@ router.get('/pitcher_list', function (req, res, next) {
 });
 
 router.get('/hitter_list', function (req, res, next) {
-  var query = "SELECT 	h.name AS NAME,\
+  var query = "SELECT 	h.player_id, \
+                        h.name AS NAME,\
                         h.plate_appearance AS PA,\
                         h.at_bat AS AB,\
                         h.doble AS DOBLE,\
@@ -146,5 +147,41 @@ WHERE	p1.player_id = ?";
   });
 
 });
+
+
+
+
+router.get('/pithit', function (req, res, next) {
+  var query = "select distinct hname as Hitter_name, pname as Pitcher_name, PLATE_APPEARANCE AS PA, AT_BAT AS AB, HIT AS H, BATTING_AVERAGE AS BA from (select name as hname, player_id from hitter) as hitterN, (select name as pname, player_id from pitcher) as pitcherN, ((SELECT player_id FROM (SELECT g.id as GID FROM game g WHERE (g.away_id = ?) or (g.home_id = ?)) as tbl1 INNER JOIN hitter_lineup hl ON tbl1.GID = hl.GAME_ID) as tbl2\
+              INNER JOIN pithit_table pht ON pht.hitter_id = tbl2.player_id)\
+              where pht.pitcher_id = ? and hitterN.player_id = pht.hitter_id and pitcherN.player_id = pht.pitcher_id;"
+  dbModule.withConnection(dbModule.pool, function (connection, next) {
+    connection.query(query, [req.query.team_id, req.query.team_id,req.query.player_id], function (err, rows) {
+      if (err) {
+        return next(err, 'GET tables error');
+      } else {
+        return next(err, null, rows);
+      }
+    });
+  }, function (err, message, rows) {
+    console.log(err);
+    if (err) {
+      res.status(400).json({
+        'code': -1,
+        'msg': 'query error',
+        'result': err
+      });
+    }
+    else {
+      res.status(200).json({
+        'code': 0,
+        'msg': 'suc',
+        'result': rows
+      });
+    }
+  });
+
+});
+
 
 module.exports = router;

@@ -18,6 +18,12 @@ function setPitcherTeamOption(teamID) {
     });
 }
 
+function moveToDetail(params) {
+    // isPitcher / playerID / teamID
+    location.href = 'player-2?playerID=' + $(params).parent().parent().data().value
+        + '&isPitcher=' + $('#pitcher_box').is(':visible') + '&teamID=' + $("#inputGroupSelect04").find("option:selected").data().value;
+}
+
 //팀아이디와 pitcher_id로 정보 출력하기
 var pithitPitcherTable;
 function setPitHitPitcherTable(playerID) {
@@ -55,7 +61,50 @@ function setPitHitPitcherTable(playerID) {
 }
 
 
+var pithitHitterTable;
+function setPitHitHitterTable(pitcherID, hitterTeamID) {
+    $.ajax({
+        url: "/player-1/pithit",
+        type: 'get',
+        data: { 'player_id': pitcherID , 'team_id':hitterTeamID},
+        success: function (json) {
+            if (pithitHitterTable && pithitHitterTable.destroy)
+            pithitHitterTable.destroy();
+            pithitHitterTable = $('#pithit').DataTable({
+                searching: false,
+                paging: false,
+                data: json.result,
+                "columns": [
+
+                    { "data": "Hitter_name" },
+                    { "data": "Pitcher_name" },
+                    { "data": "PA" },
+                    { "data": "AB" },
+                    { "data": "H" },
+                    { "data": "BA" }
+                ]
+            });
+        }
+    });
+}
+
 $(function () {
+    $("#pitcher").click(function () {
+        $("#pitcher_box").show();
+        $("#pithit_box").hide();
+        $("#hitter_box").hide();
+    });
+    $("#hitter").click(function () {
+        $("#pitcher_box").hide();
+        $("#pithit_box").hide();
+        $("#hitter_box").show();
+    });
+    $("#hitversepit").click(function () {
+        $("#pitcher_box").hide();
+        $("#pithit_box").show();
+        $("#hitter_box").hide();
+    });
+
     var team_id = getUrlVars()['teamID'];
     $.ajax({
         url: "/player-1/pitcher_list",
@@ -64,7 +113,10 @@ $(function () {
         success: function (json) {
             $('#pit_li').DataTable({
                 data: json.result,
-                "columns": [
+                createdRow: function (row, data, dataIndex) {
+                    $(row).attr('data-value', data.PLAYER_ID);
+                },
+                columns: [
                     { "data": "NAME" },
                     { "data": "WIN" },
                     { "data": "LOSE" },
@@ -80,9 +132,14 @@ $(function () {
                     { "data": "TRIPLE" },
                     { "data": "G" },
                     { "data": "SALARY" },
-                    { "data": null,
-                defaultContent:"<button onclick=''>Click!</button>"}
-                ]
+
+                    { "data": null }
+                ],
+                columnDefs: [{
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": "<button onclick='moveToDetail(this)'>Click!</button>"
+                }]
             });
         }
     });
@@ -94,6 +151,9 @@ $(function () {
         success: function (json) {
             $('#hit_li').DataTable({
                 data: json.result,
+                createdRow: function (row, data, dataIndex) {
+                    $(row).attr('data-value', data.player_id);
+                },
                 "columns": [
                     { "data": "NAME" },
                     { "data": "PA" },
@@ -106,9 +166,13 @@ $(function () {
                     { "data": "SF" },
                     { "data": "SALARY" },
                     { "data": "AVG" },
-                    { "data": null,
-                defaultContent:"<button onclick=''>Click!</button>"}
-                ]
+                    { "data": null }
+                ],
+                columnDefs: [{
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": "<button onclick='moveToDetail(this)'>Click!</button>"
+                }]
             });
         }
     });
@@ -122,6 +186,9 @@ $(function () {
         setPitHitPitcherTable($(this).find("option:selected").data().value);
     });
 
+    $("#inputGroupSelect06").change(function (element) {
+        setPitHitHitterTable($("#inputGroupSelect05").find("option:selected").data().value,$(this).find("option:selected").data().value);
+    });
     //확인 버튼
     $("#check").click(function (element) {
         $.ajax({
@@ -175,93 +242,12 @@ $(function () {
                     .attr('data-value', element['id'])
                     .html(element['name'])
                     .appendTo($("#inputGroupSelect04"));
+                    $('<option/>')
+                        .attr('data-value', element['id'])
+                        .html(element['name'])
+                        .appendTo($("#inputGroupSelect06"));
             });
             setPitcherTeamOption(row[0]['id']);
-        }
-    });
-});
-
-function getTable() {
-    $.ajax({
-        url: '/player-1/tables/' + $("#tables").val(),
-        type: 'get',
-        success: function (result) {
-            result = result.result;
-            console.log(result);
-            var columns = [];
-            var colHeaders = [];
-            result['tableInfo'].forEach(function (element) {
-                var column = {};
-                colHeaders.push(element['Field']);
-                // text, numeric, hidden, dropdown, autocomplete, checkbox, calendar
-                if (element['Type'].startsWith('int')) {
-                    column.type = 'numeric';
-                } else if (element['Type'].startsWith('float')) {
-                    column.type = 'numeric';
-                } else if (element['Type'].startsWith('tinyint')) {
-                    column.type = 'checkbox';
-                } else if (element['Type'].startsWith('enum')) { //"enum('W','L','S','H')"
-                // { type: 'dropdown', source:[ {'id':'1', 'name':'Fruits'}, {'id':'2', 'name':'Legumes'}, {'id':'3', 'name':'General Food'}, ] },
-                    column.type = 'dropdown';
-                    column.source = [];
-                    if (element['Null'] == 'YES') {
-                        column.source.push('');
-                    }
-                    var enumVal = element['Type'];
-                    enumVal = enumVal.split('(').pop();
-                    enumVal = enumVal.split(')')[0];
-                    enumVal = enumVal.split(',');
-                    for (var i = 0; i < enumVal.length; i++) {
-                        // column.source.push({id:i, name:enumVal[i].slice(1, enumVal[i].length-1)});
-                        column.source.push(enumVal[i].slice(1, enumVal[i].length-1));
-                    }
-                } else if (element['Type'].startsWith('date')) {
-                    column.type = 'calendar';
-                    column.options = {
-                        format: 'DD/MM/YYYY'
-                    };
-                } else { //if (element['Type'].startsWith('varchar')) {
-                    column.type = 'text';
-                }
-                columns.push(column);
-            });
-            var data = [];
-            result['tableRows'].forEach(function (element) {
-                var row = [];
-                colHeaders.forEach(function (field) {
-                    row.push(element[field]);
-                });
-                data.push(row);
-            });
-            // data.splice(100, data.length - 100);
-            $('#table').jexcel({
-                data: data,
-                colHeaders: colHeaders,
-                // colWidths: [300, 80, 100, 60, 120],
-                columns: columns
-            });
-        },
-        error: function (result) {
-            console.log(result);
-        }
-    });
-}
-
-$(function () {
-    $.ajax({
-        url: '/player-1/tables',
-        type: 'get',
-        success: function (row) {
-            row.result.forEach(element => {
-                $('<option/>')
-                    .html(element['Tables_in_baseball'])
-                    .appendTo($("#tables"));
-            });
-            getTable();
-            $("#tables").change(function () {
-                getTable();
-                // console.log($(this).val());
-            })
         }
     });
 });
