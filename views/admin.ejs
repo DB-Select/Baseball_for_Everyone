@@ -76,7 +76,7 @@
     <div class="container">
         <div id="section2" class="row">
             <div class="col-sm-2">
-                <select class="form-control" id="tables">
+                <select class="form-control"  id="tables">
                     <!-- <option>타자팀선택</option>
                     <option>2</option>
                     <option>3</option>
@@ -92,7 +92,7 @@
             <div class="col-sm-12">
                 <ul>
                     <li>
-                        <a href="" style="color: blue;">
+                        <a href="" style="color: blue;" onClick="window.location.href=window.location.href">
                             <i class="fa fa-refresh" aria-hidden="true"></i>
                         </a>
                     </li>
@@ -102,12 +102,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" style="color: red;" onclick="deleteHitter(); event.preventDefault(); return false;">
+                        <a href="" style="color: red;" onclick="deleteHitter(); isChanged=false; event.preventDefault();  ">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="" style="color: palegreen" onclick="insert(); ">
+                        <a href="" style="color: palegreen" onclick="insert(); isChanged=false; event.preventDefault();  event.preventDefault(); return false;">
                             <i class="fa fa-check" aria-hidden="true"></i>
                         </a>
                     </li>

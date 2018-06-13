@@ -1,4 +1,6 @@
+
 function getTable() {
+    ;
     $.ajax({
         url: '/admin/tables/' + $("#tables").val(),
         type: 'get',
@@ -66,7 +68,7 @@ function getTable() {
     });
 }
 
-var input = [];
+var input =[];
 var deleted_cell;
 var changed_cell = [];
 var isChanged;
@@ -153,9 +155,10 @@ var update = function () {
 }
 
 var insert = function () {
-    input = $('#table').jexcel('getRowData', -1);
+    input = $('#table').jexcel('getRowData', 0);
 
     inputData = {
+        PLAYER_ID:input[0],
         NAME: input[1],
         TEAM_ID: input[2],
         PLATE_APPEARANCE: input[3],
@@ -184,6 +187,7 @@ var insert = function () {
             console.log(result);
         }
     });
+  
 }
 
 $(function () {
@@ -201,9 +205,16 @@ $(function () {
         type: 'get',
         success: function (row) {
             row.result.forEach(element => {
-                $('<option/>')
+                if(element['Tables_in_baseball']=='hitter'){
+                    $('<option/>')
                     .html(element['Tables_in_baseball'])
+                    .prop("selected",true)
                     .appendTo($("#tables"));
+                }else{
+                    $('<option/>')
+                    .appendTo($("#tables"));
+                }
+               
             });
             getTable();
             $("#tables").change(function () {

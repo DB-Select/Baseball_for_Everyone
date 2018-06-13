@@ -118,7 +118,6 @@ function getPitcherList(teamID) {
                     { "data": "TRIPLE" },
                     { "data": "G" },
                     { "data": "SALARY" },
-
                     { "data": null }
                 ],
                 columnDefs: [{
