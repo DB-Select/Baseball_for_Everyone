@@ -1,3 +1,6 @@
+var pitcherTable;
+var hitterTable;
+
 function getHitter(teamID) {
     $.ajax({
         url: '/agent-1/team_hitter_record',
@@ -6,7 +9,9 @@ function getHitter(teamID) {
             'teamID': teamID
         },
         success: function (json) {
-            $('#team_hitter').DataTable({
+            if (pitcherTable)
+                pitcherTable.destroy();
+            pitcherTable = $('#team_hitter').DataTable({
                 data: json.result,
                 "columns": [{
                         "data": "NAME"
@@ -59,7 +64,9 @@ function getPitcher(teamID) {
             'teamID': teamID
         },
         success: function (json) {
-            $('#team_pitcher').DataTable({
+            if (hitterTable)
+                hitterTable.destroy();
+            hitterTable = $('#team_pitcher').DataTable({
                 data: json.result,
                 "columns": [{
                         "data": "NAME"
