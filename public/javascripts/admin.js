@@ -1,4 +1,6 @@
+var current_state;
 function getTable() {
+    current_state=$("#table").val();
     $.ajax({
         url: '/admin/tables/' + $("#tables").val(),
         type: 'get',
@@ -65,6 +67,7 @@ function getTable() {
         }
     });
 }
+
 var input =[];
 var deleted_cell;
 var changed_cell = [];
@@ -181,6 +184,7 @@ var insert = function(){
             console.log(result);
         }
     });
+  
 }
 
 $(function () {
@@ -189,9 +193,17 @@ $(function () {
         type: 'get',
         success: function (row) {
             row.result.forEach(element => {
-                $('<option/>')
+                if(element['Tables_in_baseball']=='hitter'){
+                    $('<option/>')
+                    .html(element['Tables_in_baseball'])
+                    .prop("selected",true)
+                    .appendTo($("#tables"));
+                }else{
+                    $('<option/>')
                     .html(element['Tables_in_baseball'])
                     .appendTo($("#tables"));
+                }
+               
             });
             getTable();
             $("#tables").change(function () {
