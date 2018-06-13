@@ -1,5 +1,57 @@
-var teamID = getUrlVars()['teamID'];
+function getHitter(teamID) {
+    $.ajax({
+        url: '/agent-1/team_hitter_record',
+        type: 'get',
+        data: {
+            'teamID': teamID
+        },
+        success: function (json) {
+            $('#team_hitter').DataTable({
+                data: json.result,
+                "columns": [{
+                        "data": "NAME"
+                    },
+                    {
+                        "data": "PA"
+                    },
+                    {
+                        "data": "AB"
+                    },
+                    {
+                        "data": "DOBLE"
+                    },
+                    {
+                        "data": "TRIPLE"
+                    },
+                    {
+                        "data": "SB"
+                    },
+                    {
+                        "data": "CS"
+                    },
+                    {
+                        "data": "SH"
+                    },
+                    {
+                        "data": "SF"
+                    },
+                    {
+                        "data": "SALARY"
+                    },
+                    {
+                        "data": "AVG"
+                    },
+                    {
+                        "data": null,
+                        defaultContent: "<button onclick=''>Click!</button>"
+                    }
+                ]
+            });
+        }
+    });
+}
 
+<<<<<<< HEAD
 function moveToDetail(detailBtn) {
     var is_pitcher = false;
     if ($(detailBtn).parent().parent().parent().parent().attr('id') == "team_pitcher")
@@ -136,4 +188,78 @@ $(function() {
             });
         }
     })
+=======
+function getPitcher(teamID) {
+    $.ajax({
+        url: '/agent-1/team_pitcher_record',
+        type: 'get',
+        data: {
+            'teamID': teamID
+        },
+        success: function (json) {
+            $('#team_pitcher').DataTable({
+                data: json.result,
+                "columns": [{
+                        "data": "NAME"
+                    },
+                    {
+                        "data": "WIN"
+                    },
+                    {
+                        "data": "LOSE"
+                    },
+                    {
+                        "data": "SAVE"
+                    },
+                    {
+                        "data": "HOLD"
+                    },
+                    {
+                        "data": "ER"
+                    },
+                    {
+                        "data": "IP"
+                    },
+                    {
+                        "data": "CG"
+                    },
+                    {
+                        "data": "H"
+                    },
+                    {
+                        "data": "NP"
+                    },
+                    {
+                        "data": "ERA"
+                    },
+                    {
+                        "data": "DOBLE"
+                    },
+                    {
+                        "data": "TRIPLE"
+                    },
+                    {
+                        "data": "G"
+                    },
+                    {
+                        "data": "SALARY"
+                    },
+                    {
+                        "data": null,
+                        defaultContent: "<button onclick=''>Click!</button>"
+                    }
+                ]
+            });
+        }
+    });
+}
+
+$(function () {
+    var teamID = getUrlVars()['teamID'];
+    getPitcher(teamID);
+    getHitter(teamID);
+
+    selectableFunctionCallback.push(getPitcher);
+    selectableFunctionCallback.push(getHitter);
+>>>>>>> 1bc9a4b49cc2a3d410af391612cb0f82b941eb16
 });

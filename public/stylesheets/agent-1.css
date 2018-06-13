@@ -2,6 +2,7 @@
 
 #section2 {
     margin-top: 30px;
+    margin: 0 auto;
 }
 
 #section2 ul {
@@ -27,11 +28,12 @@
 /*section3*/
 
 #section3 {
-    margin-top: 30px;
+    width: 1300px;
 }
 
 #section3>div {
-    padding: 10px;
+    padding: 0px;
+
 }
 
 
@@ -49,9 +51,11 @@
 /*section5*/
 
 #section5 {
+
     margin-top: 30px;
 }
 
 #section5>div {
     padding: 10px;
+
 }

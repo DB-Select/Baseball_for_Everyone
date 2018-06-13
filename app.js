@@ -63,6 +63,7 @@ app.use('/css', express.static(__dirname + '/node_modules/jexcel/dist/css'));
 //datatables
 app.use('/js', express.static(__dirname + '/node_modules/datatables/media/js'));
 app.use('/css', express.static(__dirname + '/node_modules/datatables/media/css'));
+app.use('/images', express.static(__dirname + '/node_modules/datatables/media/images'));
 
 
 // catch 404 and forward to error handler

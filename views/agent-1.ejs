@@ -40,7 +40,7 @@
 
 </head>
 
-<body>
+<body style=" width: 1500px;">
 
     <!-- Page Header -->
     <header>
@@ -51,25 +51,29 @@
 
     <!-- Main Content -->
     <div class="container">
-        <section2>
+        <section2 >
             <%- include('include/select-team.ejs') %>
         </section2>
 
-        <div id="section3" class="row text-center">
-            <div class="col-sm-12 border">
+        <div id="section3" class="row text-center" style=" width: 1500px;">
+            <div class="col-sm-12 border" >
                 <%- include('include/team-info.ejs') %>
             </div>
         </div>
 
         <div id="section4" class="row">
-            <a class="btn btn-primary btn-sm active" id="pitcher" role="button" aria-pressed="true">투수</a>
+            <a class="btn btn-primary btn-sm active" id="pitcher" role="button" aria-pressed="true" >투수</a>
             <a class="btn btn-primary btn-sm active" id="hitter" role="button" aria-pressed="true">타자</a>
         </div>
 
-        <div id="section5" class="row text-center">
-            <div class="col-sm-12 border" id="pitcher_box">
+        <div id="section5" class="row text-center" style="width:1500px">
+            <div class="col-sm-12 border" id="pitcher_box" >
                 <!--Table-->
+<<<<<<< HEAD
                 <table class="display" id="team_pitcher">
+=======
+                <table class="display" id="team_pitcher" style: "display:none">
+>>>>>>> 1bc9a4b49cc2a3d410af391612cb0f82b941eb16
                     <!--Table head-->
                     <thead>
                         <tr>

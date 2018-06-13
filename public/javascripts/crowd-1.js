@@ -60,7 +60,17 @@ function getVersus(_teamID, _oppID) {
     });
 }
 
+<<<<<<< HEAD
 $(function() {
+=======
+function changeTeam(_teamID) {
+    getVersus(_teamID, $("#oppSelect1").find("option:selected").data().value);
+}
+
+$(function () {
+    selectableFunctionCallback.push(changeTeam);
+
+>>>>>>> 1bc9a4b49cc2a3d410af391612cb0f82b941eb16
     $.ajax({
         url: '/select-team',
         type: 'get',

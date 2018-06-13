@@ -1,13 +1,18 @@
 $(function() {
     changeTeam(getUrlVars()['teamID']);
-    // selectableFunctionCallback.push(changeTeam);
+    selectableFunctionCallback.push(changeTeam);
 });
 
 function changeTeam(teamID) {
     $.ajax({
         url: '/team-info/' + teamID,
         type: 'get',
+<<<<<<< HEAD
         success: function(row) {
+=======
+        success: function (row) {
+            $("#teamInfoTable").html('');
+>>>>>>> 1bc9a4b49cc2a3d410af391612cb0f82b941eb16
             row = row.result;
             // console.log(row);
             var head = $('<thead/>')
@@ -21,8 +26,8 @@ function changeTeam(teamID) {
 
             var data = {
                 Name: '',
-                NumberOfGame: 0,
-                WinningRate: 0,
+                NoG: 0,
+                WR: 0,
                 Runs: 0,
                 RunsAllowed: 0,
                 AverageRuns: 0,
@@ -53,12 +58,13 @@ function changeTeam(teamID) {
                     i++;
                 }
             });
-            data.NumberOfGame = row.length;
-            data.WinningRate = (data.Win / data.NumberOfGame).toFixed(2);
-            data.AverageRuns = (data.Runs / data.NumberOfGame).toFixed(2);
+            data.NoG = row.length;
+            data.WR = (data.Win / data.NoG).toFixed(2);
+            data.AverageRuns = (data.Runs / data.NoG).toFixed(2);
 
             $.each(data, function(k, v) {
                 $('<th/>')
+                    .attr('style','width:0px;')
                     .html(k)
                     .appendTo(trHead);
                 $('<td/>')

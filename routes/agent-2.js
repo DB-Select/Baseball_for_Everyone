@@ -103,4 +103,57 @@ ORDER BY SALARY ASC;";
     })
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+router.get('/hitter_salary_list', function(req, res, next){
+  var query = "SELECT h.name AS NAME,\
+                      h.plate_appearance AS PA,\
+                      h.at_bat AS AB,\
+                      h.doble AS DOBLE,\
+                      h.triple AS TRIPLE,\
+                      h.stolen_base AS SB,\
+                      h.caught_stealing AS CS,\
+                      h.sacrifice_hit AS SH,\
+                      h.sacrifice_fly AS SF,\
+                      concat(h.salary , '만원') AS SALARY,\
+                      ROUND((sum(CASE WHEN hl.hit IS NOT NULL THEN hl.hit ELSE 0 END) / (CASE WHEN h.at_bat IS NOT NULL THEN h.at_bat ELSE 0 END)), 3) AS AVG \
+                      FROM (SELECT    h3.* \
+                          FROM   baseball.hitter h3 \
+                          WHERE   h3.salary BETWEEN (SELECT h2.salary-2000 \
+                                              FROM baseball.hitter h2 \
+                                              WHERE h2.player_id = ?) AND (SELECT h2.salary+2000 \
+                                                                      FROM baseball.hitter h2 \
+                                                                      WHERE h2.player_id = ?)) as h \
+                                                                      INNER JOIN baseball.hitter_lineup hl ON h.player_id = hl.player_id \
+                    GROUP BY h.player_id \
+                    ORDER BY SALARY ASC;";
+
+  dbModule.withConnection(dbModule.pool, function(connection, next){
+    connection.query(query, [req.query.player_id,req.query.player_id], function(err, rows){
+      if(err){
+        return next(err,'GET tables error');
+      } else {
+          return next(err, null, rows);
+        }
+      });
+    }, function(err, message, rows){
+      if(err){
+        res.status(400).json({
+          'code': -1,
+          'msg': 'query error',
+          'result': err
+        });
+      }
+      else {
+        res.status(200).json({
+          'code': 0,
+          'msg': 'suc',
+          'result': rows
+        });
+      }
+    })
+});
+
+module.exports = router;
+>>>>>>> 1bc9a4b49cc2a3d410af391612cb0f82b941eb16
