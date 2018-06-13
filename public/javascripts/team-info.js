@@ -1,6 +1,6 @@
 $(function () {
     changeTeam(getUrlVars()['teamID']);
-    // selectableFunctionCallback.push(changeTeam);
+    selectableFunctionCallback.push(changeTeam);
 });
 
 function changeTeam(teamID) {
@@ -8,6 +8,7 @@ function changeTeam(teamID) {
         url: '/team-info/' + teamID,
         type: 'get',
         success: function (row) {
+            $("#teamInfoTable").html('');
             row = row.result;
             // console.log(row);
             var head = $('<thead/>')

@@ -60,7 +60,13 @@ function getVersus(_teamID, _oppID) {
     });
 }
 
+function changeTeam(_teamID) {
+    getVersus(_teamID, $("#oppSelect1").find("option:selected").data().value);
+}
+
 $(function () {
+    selectableFunctionCallback.push(changeTeam);
+
     $.ajax({
         url: '/select-team',
         type: 'get',
