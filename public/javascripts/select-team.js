@@ -26,7 +26,6 @@ $(function () {
                     .appendTo(list);
             });
             var teamID = getUrlVars()['teamID'];
-            console.log(teamID);
             if (teamID) {
                 $('#team li').each(function (i, value) {
                     if ($(value).data().value == teamID)
