@@ -97,17 +97,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" style="color: green;">
+                        <a href="" style="color: green;" onclick="$('#table').jexcel('insertRow',-1); isChanged=false; event.preventDefault(); return false;">
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="" style="color: red;">
+                        <a href="" style="color: red;" onclick="deleteHitter(); event.preventDefault(); return false;">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="" style="color: palegreen">
+                        <a href="" style="color: palegreen" onclick="insert(); ">
                             <i class="fa fa-check" aria-hidden="true"></i>
                         </a>
                     </li>
