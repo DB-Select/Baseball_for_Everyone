@@ -163,7 +163,7 @@ $(function() {
 });
 
 $(function() {
-    $(".btn-primary").click(function() {
+    $("#bbbutton").click(function() {
         location.href = '/player-1?teamID=' + team_id;
     });
 });

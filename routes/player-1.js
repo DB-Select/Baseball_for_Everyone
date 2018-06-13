@@ -152,11 +152,14 @@ WHERE	p1.player_id = ?";
 
 
 router.get('/pithit', function (req, res, next) {
-  var query = "select distinct hname as Hitter_name, pname as Pitcher_name, PLATE_APPEARANCE AS PA, AT_BAT AS AB, HIT AS H, BATTING_AVERAGE AS BA from (select name as hname, player_id from hitter) as hitterN, (select name as pname, player_id from pitcher) as pitcherN, ((SELECT player_id FROM (SELECT g.id as GID FROM game g WHERE (g.away_id = ?) or (g.home_id = ?)) as tbl1 INNER JOIN hitter_lineup hl ON tbl1.GID = hl.GAME_ID) as tbl2\
-              INNER JOIN pithit_table pht ON pht.hitter_id = tbl2.player_id)\
-              where pht.pitcher_id = ? and hitterN.player_id = pht.hitter_id and pitcherN.player_id = pht.pitcher_id;"
+  console.log(req.query.team_id,req.query.player_id);
+  var query = "SELECT tbl1.name as Hitter_name , p.name as Pitcher_name, pht.PLATE_APPEARANCE AS PA, pht.AT_BAT as AB, pht.HIT AS H, pht.BATTING_AVERAGE as BA \
+                FROM (   SELECT h.player_id, h.name \
+                FROM baseball.hitter h \
+                WHERE h.team_id = ?) as tbl1 INNER JOIN baseball.pithit_table pht ON tbl1.player_id = pht.hitter_id, pitcher p \
+                WHERE pht.pitcher_id = ? and pht.pitcher_id = p.player_id;"
   dbModule.withConnection(dbModule.pool, function (connection, next) {
-    connection.query(query, [req.query.team_id, req.query.team_id,req.query.player_id], function (err, rows) {
+    connection.query(query, [req.query.team_id,req.query.player_id], function (err, rows) {
       if (err) {
         return next(err, 'GET tables error');
       } else {
@@ -164,7 +167,7 @@ router.get('/pithit', function (req, res, next) {
       }
     });
   }, function (err, message, rows) {
-    console.log(err);
+    console.log(rows);
     if (err) {
       res.status(400).json({
         'code': -1,

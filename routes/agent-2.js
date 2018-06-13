@@ -103,9 +103,6 @@ ORDER BY SALARY ASC;";
     })
 });
 
-<<<<<<< HEAD
-module.exports = router;
-=======
 router.get('/hitter_salary_list', function(req, res, next){
   var query = "SELECT h.name AS NAME,\
                       h.plate_appearance AS PA,\
@@ -156,4 +153,3 @@ router.get('/hitter_salary_list', function(req, res, next){
 });
 
 module.exports = router;
->>>>>>> 1bc9a4b49cc2a3d410af391612cb0f82b941eb16

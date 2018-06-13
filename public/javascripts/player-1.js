@@ -88,30 +88,16 @@ function setPitHitHitterTable(pitcherID, hitterTeamID) {
     });
 }
 
-$(function () {
-    $("#pitcher").click(function () {
-        $("#pitcher_box").show();
-        $("#pithit_box").hide();
-        $("#hitter_box").hide();
-    });
-    $("#hitter").click(function () {
-        $("#pitcher_box").hide();
-        $("#pithit_box").hide();
-        $("#hitter_box").show();
-    });
-    $("#hitversepit").click(function () {
-        $("#pitcher_box").hide();
-        $("#pithit_box").show();
-        $("#hitter_box").hide();
-    });
-
-    var team_id = getUrlVars()['teamID'];
+var pitcherTable;
+function getPitcherList(teamID) {
     $.ajax({
         url: "/player-1/pitcher_list",
         type: 'get',
-        data: { 'team_id': team_id },
+        data: { 'team_id': teamID },
         success: function (json) {
-            $('#pit_li').DataTable({
+            if (pitcherTable && pitcherTable.destroy)
+                pitcherTable.destroy();
+            pitcherTable = $('#pit_li').DataTable({
                 data: json.result,
                 createdRow: function (row, data, dataIndex) {
                     $(row).attr('data-value', data.PLAYER_ID);
@@ -143,13 +129,18 @@ $(function () {
             });
         }
     });
+}
 
+var hitterTable;
+function getHitterList(teamID) {
     $.ajax({
         url: "/player-1/hitter_list",
         type: 'get',
-        data: { 'team_id': team_id },
+        data: { 'team_id': teamID },
         success: function (json) {
-            $('#hit_li').DataTable({
+            if (hitterTable && hitterTable.destroy)
+                hitterTable.destroy();
+            hitterTable = $('#hit_li').DataTable({
                 data: json.result,
                 createdRow: function (row, data, dataIndex) {
                     $(row).attr('data-value', data.player_id);
@@ -176,6 +167,32 @@ $(function () {
             });
         }
     });
+}
+
+$(function () {
+    $("#pitcher").click(function () {
+        $("#pitcher_box").show();
+        $("#pithit_box").hide();
+        $("#hitter_box").hide();
+    });
+    $("#hitter").click(function () {
+        $("#pitcher_box").hide();
+        $("#pithit_box").hide();
+        $("#hitter_box").show();
+    });
+    $("#hitversepit").click(function () {
+        $("#pitcher_box").hide();
+        $("#pithit_box").show();
+        $("#hitter_box").hide();
+    });
+
+    var team_id = getUrlVars()['teamID'];
+    getPitcherList(team_id);
+    getHitterList(team_id);
+    selectableFunctionCallback.push(getPitcherList);
+    selectableFunctionCallback.push(getHitterList);
+
+    
 
     //팀이 변경 되었을때
     $("#inputGroupSelect04").change(function (element) {
