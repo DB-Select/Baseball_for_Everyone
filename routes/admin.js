@@ -82,11 +82,13 @@ router.post('/tables/:table', function (req, res, next) {
   
   var row = req.body;
   var insert = 'INSERT INTO ' + req.params.table 
-             + '(NAME, TEAM_ID, PLATE_APPEARANCE, AT_BAT, DOBLE, TRIPLE, STOLEN_BASE, CAUGHT_STEALING, SACRIFICE_HIT, SACRIFICE_FLY, SALARY) VALUES '
-             + '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)' 
+             + '(PLAYER_ID,NAME, TEAM_ID, PLATE_APPEARANCE, AT_BAT, DOBLE, TRIPLE, STOLEN_BASE, CAUGHT_STEALING, SACRIFICE_HIT, SACRIFICE_FLY, SALARY) VALUES '
+             + '(?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)' 
               
   var value = 
-    [row.NAME,
+    [
+     row.PLAYER_ID,
+     row.NAME,
      row.TEAM_ID,
      row.PLATE_APPEARANCE,
      row.AT_BAT,
