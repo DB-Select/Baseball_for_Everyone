@@ -18,7 +18,7 @@ function getTable() {
                 } else if (element['Type'].startsWith('tinyint')) {
                     column.type = 'checkbox';
                 } else if (element['Type'].startsWith('enum')) { //"enum('W','L','S','H')"
-                // { type: 'dropdown', source:[ {'id':'1', 'name':'Fruits'}, {'id':'2', 'name':'Legumes'}, {'id':'3', 'name':'General Food'}, ] },
+                    // { type: 'dropdown', source:[ {'id':'1', 'name':'Fruits'}, {'id':'2', 'name':'Legumes'}, {'id':'3', 'name':'General Food'}, ] },
                     column.type = 'dropdown';
                     column.source = [];
                     if (element['Null'] == 'YES') {
@@ -30,7 +30,7 @@ function getTable() {
                     enumVal = enumVal.split(',');
                     for (var i = 0; i < enumVal.length; i++) {
                         // column.source.push({id:i, name:enumVal[i].slice(1, enumVal[i].length-1)});
-                        column.source.push(enumVal[i].slice(1, enumVal[i].length-1));
+                        column.source.push(enumVal[i].slice(1, enumVal[i].length - 1));
                     }
                 } else if (element['Type'].startsWith('date')) {
                     column.type = 'calendar';
@@ -65,14 +65,15 @@ function getTable() {
         }
     });
 }
-var input =[];
+
+var input = [];
 var deleted_cell;
 var changed_cell = [];
 var isChanged;
 
 
-var setButtonEvent = function(){
-    if(isChanged == true) {
+var setButtonEvent = function () {
+    if (isChanged == true) {
         update();
     }
     else {
@@ -80,32 +81,34 @@ var setButtonEvent = function(){
     }
 }
 
-var changeCell = function(instance, cell, value) {
+var changeCell = function (instance, cell, value) {
     isChanged = true;
-    var columnCode = $(instance).jexcel('getColumnNameFromId', $(cell).prop('id')).substr(0,1).charCodeAt(0) - 65;
+    var columnCode = $(instance).jexcel('getColumnNameFromId', $(cell).prop('id')).substr(0, 1).charCodeAt(0) - 65;
     var rowCode = $(instance).jexcel('getColumnNameFromId', $(cell).prop('id'));
-    rowCode = rowCode.substr(1, rowCode.length-1) - 1;
+    rowCode = rowCode.substr(1, rowCode.length - 1) - 1;
     var cellName = $(instance).jexcel('getHeader', columnCode);
-    var rowData =  $(instance).jexcel('getRowData', rowCode);
+    var rowData = $(instance).jexcel('getRowData', rowCode);
 
     console.log({
         player_id: rowData[0],
         cellName: cellName,
         value: value
     });
-    changed_cell=
-        {player_id: rowData[0],
-        cellName: cellName,
-        value: value}
+    changed_cell =
+        {
+            player_id: rowData[0],
+            cellName: cellName,
+            value: value
+        }
 }
 
-var selectionActive = function(instance, firstColumn, lastColumn) {
+var selectionActive = function (instance, firstColumn, lastColumn) {
     var cellName1 = $(instance).jexcel('getData', $(firstColumn).prop('id'));
     console.log(cellName1[0][0]);
     deleted_cell = cellName1[0][0];
 }
 
-var deleteHitter = function() {
+var deleteHitter = function () {
     var inputData = {
         hitter_id: deleted_cell
     }
@@ -116,7 +119,7 @@ var deleteHitter = function() {
         type: 'DELETE',
         data: inputData,
         success: function (result) {
-            console.log(inputData);      
+            console.log(inputData);
         },
         error: function (err) {
             console.log(err);
@@ -124,7 +127,7 @@ var deleteHitter = function() {
     });
 }
 
-var update = function(){
+var update = function () {
     var inputData = changed_cell;
     /*
     changeData : [
@@ -135,13 +138,13 @@ var update = function(){
     $.ajax({
         url: '/admin/tables/' + $("#tables").val(),
         type: 'PUT',
-        dataType:"json",
+        dataType: "json",
         data: inputData,
         success: function (result) {
             console.log(inputData);
             console.log('aaaa');
             console.log(input[1]);
-            
+
         },
         error: function (result) {
             console.log(result);
@@ -149,8 +152,8 @@ var update = function(){
     });
 }
 
-var insert = function(){
-    input=$('#table').jexcel('getRowData', -1);
+var insert = function () {
+    input = $('#table').jexcel('getRowData', -1);
 
     inputData = {
         NAME: input[1],
@@ -165,7 +168,7 @@ var insert = function(){
         SACRIFICE_FLY: input[10],
         SALARY: input[11]
     };
-    
+
     console.log('aa')
     $.ajax({
         url: '/admin/tables/' + $("#tables").val(),
@@ -175,7 +178,7 @@ var insert = function(){
             console.log(inputData);
             console.log('aaaa');
             console.log(input[1]);
-            
+
         },
         error: function (result) {
             console.log(result);
@@ -184,6 +187,15 @@ var insert = function(){
 }
 
 $(function () {
+
+    $('#addCell').click(function(event) {
+        event.preventDefault();
+        $('#table').jexcel('insertRow', 0);
+        $('#table').jexcel('moveRow', $("#table").find("tbody tr").length-1, 0);
+        isChanged = false;
+        return false;
+    });
+
     $.ajax({
         url: '/admin/tables',
         type: 'get',
