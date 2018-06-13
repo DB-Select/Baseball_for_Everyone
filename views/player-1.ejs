@@ -18,7 +18,6 @@
 
 
     <script src="/javascripts/player-1.js"></script>
-
     <script>
         $(document).ready(function () {
             $("#pitcher").click(function () {
@@ -99,18 +98,18 @@
 
         <div id="section3" class="row">
             <div id="section4" class="row">
-                <a href="#" class="btn btn-primary btn-sm active" id="pitcher" role="button" aria-pressed="true">투수</a>
-                <a href="#" class="btn btn-primary btn-sm active" id="hitter" role="button" aria-pressed="true">타자</a>
-                <a href="#" class="btn btn-primary btn-sm active" id="hitversepit" role="button" aria-pressed="true">투수vs타자</a>
+                <a class="btn btn-primary btn-sm active" id="pitcher" role="button" aria-pressed="true">투수</a>
+                <a class="btn btn-primary btn-sm active" id="hitter" role="button" aria-pressed="true">타자</a>
+                <a class="btn btn-primary btn-sm active" id="hitversepit" role="button" aria-pressed="true">투수vs타자</a>
             </div>
         </div>
 
 
         <!--pithcer table 출력-->
         <div id="section5" class="row text-center">
-            <div class="col-sm-12 border" id="pitcher_box">
+            <div class="col-sm- border" id="pitcher_box">
                 <!--Table-->
-                <table class="table" id="pit_li" cellspacing="0" width="100%">
+                <table class="display" id="pit_li">
                     <!--Table head-->
                     <thead>
                         <tr>
@@ -131,6 +130,7 @@
                             <th>TRIPLE</th>
                             <th>G</th>
                             <th>SALARY</th>
+                            <th>BUTTON</th>
                         </tr>
                     </thead>
                     <!--Table head-->
@@ -142,10 +142,10 @@
 
         <!--hitter table 테이블-->
         <div id="section5" class="row text-center">
-            <div class="col-sm-12 border" id="hitter_box" style="display:none">
+            <div class="col-sm- border" id="hitter_box" style="display:none">
 
                 <!--Table-->
-                <table class="table" id="hit_li" cellspacing="0" width="100%">
+                <table class="display" id="hit_li">
                     <!--Table head-->
                     <thead>
                         <tr>
@@ -162,6 +162,7 @@
                             <th>SF</th>
                             <th>SALARY</th>
                             <th>AVG</th>
+                            <th>BUTTON</th>
                         </tr>
                     </thead>
                     <!--Table head-->

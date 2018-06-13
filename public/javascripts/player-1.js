@@ -79,7 +79,9 @@ $(function () {
                     { "data": "DOBLE" },
                     { "data": "TRIPLE" },
                     { "data": "G" },
-                    { "data": "SALARY" }
+                    { "data": "SALARY" },
+                    { "data": null,
+                defaultContent:"<button onclick=''>Click!</button>"}
                 ]
             });
         }
@@ -103,7 +105,9 @@ $(function () {
                     { "data": "SH" },
                     { "data": "SF" },
                     { "data": "SALARY" },
-                    { "data": "AVG" }
+                    { "data": "AVG" },
+                    { "data": null,
+                defaultContent:"<button onclick=''>Click!</button>"}
                 ]
             });
         }

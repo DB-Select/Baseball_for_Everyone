@@ -7,62 +7,35 @@
         <%- include('include/config.ejs') %>
     </config>
 
-    <style>
-        /*section2*/
+    <head>
 
-        #section2 {
-            margin-top: 30px;
-        }
+        <!--<script src="/js/jquery-ui.min.js"></script>-->
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link href="/css/jquery.dataTables.css" rel="stylesheet">
+        <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
 
-        #section2 ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+        <script src="/js/jquery.js"></script>
+        <script src="js/jquery.dataTables.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/stylesheets/agent-1.css">
 
-        #section2 ul li {
-            margin: 0 0 0 0;
-            padding: 0 0 0 0;
-            border: 0;
-            float: left;
-            border: 1px solid;
-            width: 10%;
-        }
 
-        #section2 ul li img {
-            width: 100%;
-        }
+        <script src="/javascripts/agent-1.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#pitcher").click(function() {
+                    $("#pitcher_box").show();
+                    $("#hitter_box").hide();
+                });
+                $("#hitter").click(function() {
+                    $("#pitcher_box").hide();
+                    $("#hitter_box").show();
+                });
 
-        /*section3*/
-
-        #section3 {
-            margin-top: 30px;
-        }
-
-        #section3>div {
-            padding: 10px;
-        }
-
-        /*section4*/
-
-        #section4 {
-            margin-top: 30px;
-        }
-
-        #section4>a {
-            margin-right: 5px;
-        }
-
-        /*section5*/
-
-        #section5 {
-            margin-top: 30px;
-        }
-
-        #section5>div {
-            padding: 10px;
-        }
-    </style>
+            });
+        </script>
+    </head>
 
 </head>
 
@@ -88,48 +61,61 @@
         </div>
 
         <div id="section4" class="row">
-            <a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">투수</a>
-            <a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">타자</a>
+            <a class="btn btn-primary btn-sm active" id="pitcher" role="button" aria-pressed="true">투수</a>
+            <a class="btn btn-primary btn-sm active" id="hitter" role="button" aria-pressed="true">타자</a>
         </div>
 
         <div id="section5" class="row text-center">
-            <div class="col-sm-12 border">
+            <div class="col-sm-12 border" id="pitcher_box">
                 <!--Table-->
-                <table class="table">
+                <table class="display" id="team_pitcher" sytle: "display:none">
                     <!--Table head-->
                     <thead>
                         <tr>
-                            <!--active : blue-->
-                            <!--fa-lg fa-2x fa-3x fa-4x fa-5x 크기조절-->
-                            <th width="10%">순위
-                                <i class="fa fa-sort fa-lg" aria-hidden="true"></i>
-                                <i class="fa fa-sort active fa-2x" aria-hidden="true"></i>
-                            </th>
-                            <th width="20%">선수명
-                                <i class="fa fa-sort" aria-hidden="true"></i>
-                            </th>
-                            <th width="60%">투/타 별 속성
-                                <i class="fa fa-sort" aria-hidden="true"></i>
-                            </th>
-                            <th width="10%">*</th>
+                            <th>NAME</th>
+                            <th>WIN</th>
+                            <th>LOSE</th>
+                            <th>SAVE</th>
+                            <th>HOLD</th>
+                            <th>ER</th>
+                            <th>IP</th>
+                            <th>CG</th>
+                            <th>H</th>
+                            <th>NP</th>
+                            <th>ERA</th>
+                            <th>DOBLE</th>
+                            <th>TRIPLE</th>
+                            <th>G</th>
+                            <th>SALARY</th>
+                            <th>BUTTON</th>
                         </tr>
                     </thead>
                     <!--Table head-->
+                </table>
+                <!--Table-->
+            </div>
 
-                    <!--Table body-->
-                    <tbody>
+            <div class="col-sm-12 border" id="hitter_box">
+                <!--Table-->
+                <table class="display" id="team_hitter" sytle: "display:none">
+                    <!--Table head-->
+                    <thead>
                         <tr>
-                            <td>1</td>
-                            <td>배준기</td>
-                            <td>투/타 별 속성</td>
-                            <td>
-                                <a href="agent-2.html">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                </a>
-                            </td>
+                            <th>NAME</th>
+                            <th>PA</th>
+                            <th>AB</th>
+                            <th>DOBLE</th>
+                            <th>TRIPLE</th>
+                            <th>SB</th>
+                            <th>CS</th>
+                            <th>SH</th>
+                            <th>SF</th>
+                            <th>SALARY</th>
+                            <th>AVG</th>
+                            <th>BUTTON</th>
                         </tr>
-                    </tbody>
-                    <!--Table body-->
+                    </thead>
+                    <!--Table head-->
                 </table>
                 <!--Table-->
             </div>

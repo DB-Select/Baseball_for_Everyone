@@ -61,17 +61,17 @@ router.get('/hitter_list', function (req, res, next) {
   var query = "SELECT 	h.name AS NAME,\
                         h.plate_appearance AS PA,\
                         h.at_bat AS AB,\
-                        h.double AS DOBLE,\
+                        h.doble AS DOBLE,\
                         h.triple AS TRIPLE,\
                         h.stolen_base AS SB,\
                         h.caught_stealing AS CS,\
                         h.sacrifice_hit AS SH,\
                         h.sacrifice_fly AS SF,\
                         concat(h.salary , '만원') AS SALARY,\
-                        coalesce((sum(hl.hit)/sum(h.at_bat)),0) AS AVG\
-                FROM	hitter h, hitter_lineup hl\
-                WHERE	(h.player_id = hl.player_id) AND (h.team_id = ?)\
-                GROUP BY h.player_id\
+                        ROUND((sum(CASE WHEN hl.hit IS NOT NULL THEN hl.hit ELSE 0 END) / (CASE WHEN h.at_bat IS NOT NULL THEN h.at_bat ELSE 0 END)), 3) AS AVG \
+                FROM	hitter h, hitter_lineup hl \
+                WHERE	(h.player_id = hl.player_id) AND (h.team_id = ?) \
+                GROUP BY h.player_id \
                 ORDER BY h.name;"
   dbModule.withConnection(dbModule.pool, function (connection, next) {
     connection.query(query, [req.query.team_id], function (err, rows) {
