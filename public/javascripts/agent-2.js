@@ -31,6 +31,7 @@ $(function() {
             type: 'get',
             data: { 'player_id': player_id },
             success: function(json) {
+
                 $('#tableResult').DataTable({
                     data: json.result,
                     "columns": headerList
@@ -62,6 +63,7 @@ $(function() {
             type: 'get',
             data: { 'player_id': player_id },
             success: function(json) {
+
                 $('#tableResult').DataTable({
                     data: json.result,
                     "columns": headerList
