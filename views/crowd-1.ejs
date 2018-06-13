@@ -24,12 +24,13 @@
     </head>
 
     <script>
-        $(document).ready(function () {
-            $("#my").click(function () {
+        $(document).ready(function() {
+            $("#awaybutton").hide();
+            $("#my").click(function() {
                 $("#awaybutton").hide();
                 $("#showbutton").show();
             });
-            $("#away").click(function () {
+            $("#away").click(function() {
                 $("#awaybutton").show();
                 $("#showbutton").hide();
             });
@@ -70,9 +71,25 @@
 
         <div id="section4" class="row text-center">
             <div class="col-sm border" id="showbutton">
-<!-- 여기 -->
+                <!-- 여기 -->
+                <table class="display" id="recent-record">
+                    <thead>
+                        <tr>
+                            <th>일시</th>
+                            <th>홈팀</th>
+                            <th>점수</th>
+                            <th></th>
+                            <th>점수</th>
+                            <th>원정팀</th>
+                            <th>button</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
-            <div class="col-sm border" id="awaybutton" style="display:none;">
+        </div>
+
+        <div id="section4" class="row text-center">
+            <div class="col-sm border" id="awaybutton">
                 <div class="input-group">
                     <select class="custom-select" name="oppSelect" id="oppSelect1"></select>
                 </div>
@@ -101,6 +118,7 @@
                 <!--Table-->
             </div>
         </div>
+    </div>
     </div>
 
 

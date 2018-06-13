@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
     changeTeam(getUrlVars()['teamID']);
     // selectableFunctionCallback.push(changeTeam);
 });
@@ -7,7 +7,7 @@ function changeTeam(teamID) {
     $.ajax({
         url: '/team-info/' + teamID,
         type: 'get',
-        success: function (row) {
+        success: function(row) {
             row = row.result;
             // console.log(row);
             var head = $('<thead/>')
@@ -57,7 +57,7 @@ function changeTeam(teamID) {
             data.WinningRate = (data.Win / data.NumberOfGame).toFixed(2);
             data.AverageRuns = (data.Runs / data.NumberOfGame).toFixed(2);
 
-            $.each(data, function (k, v) {
+            $.each(data, function(k, v) {
                 $('<th/>')
                     .html(k)
                     .appendTo(trHead);

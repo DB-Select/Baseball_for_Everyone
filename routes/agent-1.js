@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/team_pitcher_record', function(req, res, next) {
-    var sql_query = "SELECT	p1.player_id,\
+    var sql_query = "SELECT	p1.player_id as pid,\
                     p1.name,\
                     sum(CASE WHEN (p1.WIN_LOSE_SAVE = 'W') THEN 1 ELSE 0 END) AS WIN,\
                     sum(CASE WHEN (p1.WIN_LOSE_SAVE = 'L') THEN 1 ELSE 0 END) AS LOSE,\
@@ -55,7 +55,7 @@ router.get('/team_pitcher_record', function(req, res, next) {
 });
 
 router.get('/team_hitter_record', function(req, res, next) {
-    var sql_query = "SELECT 	h.name AS NAME, h.plate_appearance AS PA,\
+    var sql_query = "SELECT 	h.player_id as pid, h.name AS NAME, h.plate_appearance AS PA,\
     h.at_bat AS AB,\
     h.doble AS DOBLE,\
     h.triple AS TRIPLE, \

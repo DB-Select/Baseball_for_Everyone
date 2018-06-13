@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -41,7 +41,6 @@ app.use('/agent-2', agent2Router);
 app.use('/player-1', player1Router);
 app.use('/admin', adminRouter);
 app.use('/player-2', player2Router);
-
 app.use('/agent-1', agent1Router);
 
 
@@ -51,16 +50,16 @@ app.use('/team-info', teamInfoRouter);
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 //bootstrap
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS 
-app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); 
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 //jquery-ui-dist
-app.use('/js', express.static(__dirname + '/node_modules/jquery-ui-dist')); 
-app.use('/css', express.static(__dirname + '/node_modules/jquery-ui-dist')); 
+app.use('/js', express.static(__dirname + '/node_modules/jquery-ui-dist'));
+app.use('/css', express.static(__dirname + '/node_modules/jquery-ui-dist'));
 //font-awesome
-app.use('/css', express.static(__dirname + '/node_modules/font-awesome/css')); 
-app.use('/fonts', express.static(__dirname + '/node_modules/font-awesome/fonts')); 
+app.use('/css', express.static(__dirname + '/node_modules/font-awesome/css'));
+app.use('/fonts', express.static(__dirname + '/node_modules/font-awesome/fonts'));
 //jexcel
-app.use('/js', express.static(__dirname + '/node_modules/jexcel/dist/js')); 
-app.use('/css', express.static(__dirname + '/node_modules/jexcel/dist/css')); 
+app.use('/js', express.static(__dirname + '/node_modules/jexcel/dist/js'));
+app.use('/css', express.static(__dirname + '/node_modules/jexcel/dist/css'));
 //datatables
 app.use('/js', express.static(__dirname + '/node_modules/datatables/media/js'));
 app.use('/css', express.static(__dirname + '/node_modules/datatables/media/css'));
@@ -68,18 +67,18 @@ app.use('/css', express.static(__dirname + '/node_modules/datatables/media/css')
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;

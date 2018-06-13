@@ -1,84 +1,69 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!--css load-->
     <div>
         <%- include('include/config.ejs') %>
     </div>
 
-    
-    <link rel="stylesheet" href="/stylesheets/style.css"> 
-    <link rel="stylesheet" href="/css/bootstrap.min.css"> 
+
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link href="/css/jquery.dataTables.css" rel="stylesheet">
     <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
-    
-    <script src="/js/jquery.js"></script> 
+
+    <script src="/js/jquery.js"></script>
     <script src="js/jquery.dataTables.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/stylesheets/agent-2.css">
-    
-    
+
+
     <script src="/javascripts/agent-2.js"></script>
-    
+
 </head>
 
 <body>
 
-<!-- Page Header -->
-<header>
+    <!-- Page Header -->
+    <header>
         <%- include('include/header-agent.ejs') %>
-</header>
+    </header>
 
-<hr>
+    <hr>
 
-<!-- Main Content -->
-<div class="container">
-    <div id="section2" class="row text-center">
-        <div class="col-sm-9 border">
-        
-            
+    <!-- Main Content -->
+    <div class="container">
+        <div id="section2" class="row text-center">
+            <div class="col-sm-9 border">
+
+
                 <!--Table-->
-            <table class="display" id="pit_sal" cellspacing="0" width="100%">
+                <table class="display" id="tableResult" cellspacing="0" width="100%">
 
-                <thead>
-                    <tr>
-                        <th>NAME</th>
-                        <th>G</th>
-                        <th>WIN</th>
-                        <th>LOSE</th>
-                        <th>SAVE</th>
-                        <th>HOLD</th>
-                        <th>ER</th>
-                        <th>IP</th>
-                        <th>CG</th>
-                        <th>H</th>
-                        <th>NP</th>
-                        <th>ERA</th>
-                        <th>DOBLE</th>
-                        <th>TRIPLE</th>
-                        <th>HR</th>
-                        <th>SALARY</th>
+                    <thead>
+                        <tr>
+                        </tr>
+                    </thead>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
 
-                    </tr>
-                </thead>
-                <!--Table body-->
-            </table>
-            <!--Table-->
-        </div>
-        <div class="col-sm-3 float-right text-center">
-            <div class="text-right header-mg-t">
-                <a class="btn btn-primary btn-sm active" role="button" aria-pressed="true">다른투수선택</a>
+            </div>
+            <div class="col-sm-3 float-right text-center">
+                <div class="text-right header-mg-t">
+                    <a class="btn btn-primary btn-sm active" role="button" aria-pressed="true">다른선수선택</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<hr>
+    <hr>
 
-<!-- Footer -->
-<footer>
-    <%- include('include/footer.ejs') %>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <%- include('include/footer.ejs') %>
+    </footer>
 
 
 
