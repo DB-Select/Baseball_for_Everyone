@@ -1,6 +1,40 @@
  /*section2*/
-
+ 
  #section2 {
+<<<<<<< HEAD
+     margin-top: 30px;
+ }
+ 
+ #section2 div select {
+     background-color: #56abff;
+     color: white;
+ }
+ /*section3*/
+ /* #section3 {
+        margin-top: 30px;
+    } */
+ 
+ #section3 div {
+     margin: .5rem .75rem;
+     margin-top: 30px !important;
+     background-color: #56abff;
+     color: white;
+     padding: .5rem .75rem;
+ }
+ /*section4*/
+ 
+ #section4 {
+     margin-top: 30px;
+ }
+ 
+ #section4 div {
+     padding: 10px;
+ }
+ 
+ div.container {
+     width: 80%;
+ }
+=======
     padding: 20px;
     width: 1300px;
     margin: 0 auto;
@@ -35,3 +69,4 @@
 #section4>div {
     padding: 0px;
 }
+>>>>>>> 1bc9a4b49cc2a3d410af391612cb0f82b941eb16

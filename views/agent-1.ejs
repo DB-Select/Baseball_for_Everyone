@@ -24,6 +24,7 @@
         <script src="/javascripts/agent-1.js"></script>
         <script>
             $(document).ready(function() {
+                $("#hitter_box").hide();
                 $("#pitcher").click(function() {
                     $("#pitcher_box").show();
                     $("#hitter_box").hide();
@@ -68,7 +69,11 @@
         <div id="section5" class="row text-center" style="width:1500px">
             <div class="col-sm-12 border" id="pitcher_box" >
                 <!--Table-->
+<<<<<<< HEAD
+                <table class="display" id="team_pitcher">
+=======
                 <table class="display" id="team_pitcher" style: "display:none">
+>>>>>>> 1bc9a4b49cc2a3d410af391612cb0f82b941eb16
                     <!--Table head-->
                     <thead>
                         <tr>
@@ -97,7 +102,7 @@
 
             <div class="col-sm-12 border" id="hitter_box">
                 <!--Table-->
-                <table class="display" id="team_hitter" sytle: "display:none">
+                <table class="display" id="team_hitter" sytle="display:none">
                     <!--Table head-->
                     <thead>
                         <tr>
@@ -110,8 +115,8 @@
                             <th>CS</th>
                             <th>SH</th>
                             <th>SF</th>
-                            <th>SALARY</th>
                             <th>AVG</th>
+                            <th>SALARY</th>
                             <th>BUTTON</th>
                         </tr>
                     </thead>
