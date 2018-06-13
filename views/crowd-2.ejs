@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!--css load-->
+        <config>
+                <%- include('include/config.ejs') %>
+        </config>
+       
+        <head>
+            <link rel="stylesheet" href="/css/jquery-ui.min.css">
+            <!--<script src="/js/jquery-ui.min.js"></script>-->
+            <script src="/javascripts/utility.js" type="text/javascript"></script>
+            <script src="js/jquery.js" type="text/javascript"></script>
+            <script src="js/jquery.dataTables.js" type="text/javascript"></script>
+            <script src="/javascripts/crowd-2.js" type="text/javascript"></script>
+            <div id="config"></div>
+            <link rel="stylesheet" href="/stylesheets/style.css"> 
+            <link rel="stylesheet" href="/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/stylesheets/crowd-2.css">
+            <script src="/js/jquery.min.js"></script> 
+            <script src="/js/bootstrap.min.js"></script>
+          </head>
+    
+    </head>
+
+<body>
+
+<!-- Page Header -->
+<header>
+    <%- include('include/header-crowd.ejs') %>
+</header>
+
+<hr>
+
+<!-- Main Content -->
+<div class="container text-center">
+    <section2>
+        <!DOCTYPE html>
+        <html>
+            <div id="section2" class="row">
+                <div class="col-sm-12 border">
+                    <ul id="result">
+                    </ul>
+                </div>
+            </div>
+        </html>
+    </section2>
+    </div>
+    <section3>         
+        <div id="section3" class="row text-center">
+            <html>
+                <div class="col-sm-4 border">
+                    <!--Table-->
+                    <!DOCTYPE html>
+                    <!-- #home_pitcher-->
+                    <div class="table-responsive">
+                    <table id="home_pitcher" border = "2px solid black" width="400"></table>
+                    </div>
+                </div>
+            </html>
+        <div class="col-sm-4"></div>
+        <html>
+            <div class="col-sm-4 border text-center">
+             <!--Table-->
+                <!DOCTYPE html>            
+                      <!-- #away_pitcher-->
+                <div class="table-responsive">
+                    <table id="away_pitcher" border = "2px solid black" width="400"></table> 
+                </div>          
+            </div>
+        </html>
+    </div>
+</section3>
+    <div id="section4" class="row text-center">
+            
+            <html>
+                <div class="col-sm-4 border text-center">
+                    <!--Table-->
+                    <!DOCTYPE html>
+                    <!-- #home_hitter-->
+                    <div class="table-responsive">
+                    <table id="home_hitter" border = "2px solid black" width="400"></table>
+                    </div>
+                </div>
+            </html> 
+
+        <div class="col-sm-4 text-center">
+          
+                <div class="text-center test" style="margin-top: 33%;">
+                        <a class="btn-primary" role="button" aria-pressed="true">다른경기 선택</a>
+                    </div>
+                     
+        </div>
+           
+            <html>
+                <div class="col-sm-4 border text-center">
+                    <!--Table-->
+                    <!DOCTYPE html>
+                    <!-- #away_hitter-->
+                    <div class="table-responsive">
+                    <table id="away_hitter" border = "2px solid black" width="400"></table>
+                    </div>
+                </div>
+            </html> 
+        </div>
+        </div>
+    </div>
+<hr>
+
+<!-- Footer -->
+<footer>
+    <%- include('include/footer.ejs') %>
+</footer>
+
+</body>
+
+</html>

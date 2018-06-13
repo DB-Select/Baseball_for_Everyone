@@ -1,0 +1,36 @@
+ /*section2*/
+ #section2{
+    margin-top: 30px;
+}
+#section2 > div div{
+    padding: 20px;
+    background-color: #56abff;
+    border: 1px solid #080c5a;
+    color: white;
+}
+#section2 > div div:nth-child(1), #section2 > div div:nth-child(2){
+    border-right: none;
+}
+@media (max-width: 575px) {
+    #section2 > div div:nth-child(1), #section2 > div div:nth-child(2){
+        border: 1px solid #080c5a;
+        border-bottom: none;
+    }
+}
+
+
+/*section3*/
+#section3{
+    margin-top: 30px;
+}
+#section3 > div{
+    padding: 10px;
+}
+
+/*section4*/
+#section4{
+    margin-top: 30px;
+}
+#section4 > div{
+    padding: 10px;
+}
