@@ -28,3 +28,12 @@
     #section3 div img{
     width: 100%;
     }
+
+    .container {
+        width: 500%;
+        
+        margin: 0 auto;
+        
+        padding: 10px;
+        
+        }

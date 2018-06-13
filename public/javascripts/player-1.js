@@ -62,34 +62,26 @@ function setPitHitPitcherTable(playerID) {
 
 
 var pithitHitterTable;
-function setPitHitHitterTable(playerID) {
+function setPitHitHitterTable(pitcherID, hitterTeamID) {
     $.ajax({
         url: "/player-1/pithit",
         type: 'get',
-        data: { 'player_id': playerID },
+        data: { 'player_id': pitcherID , 'team_id':hitterTeamID},
         success: function (json) {
             if (pithitHitterTable && pithitHitterTable.destroy)
             pithitHitterTable.destroy();
-            pithitHitterTable = $('#resultInfo').DataTable({
+            pithitHitterTable = $('#pithit').DataTable({
                 searching: false,
                 paging: false,
                 data: json.result,
                 "columns": [
-                    { "data": "NAME" },
-                    { "data": "WIN" },
-                    { "data": "LOSE" },
-                    { "data": "SAVE" },
-                    { "data": "HOLD" },
-                    { "data": "ER" },
-                    { "data": "IP" },
-                    { "data": "CG" },
+
+                    { "data": "Hitter_name" },
+                    { "data": "Pitcher_name" },
+                    { "data": "PA" },
+                    { "data": "AB" },
                     { "data": "H" },
-                    { "data": "NP" },
-                    { "data": "ERA" },
-                    { "data": "DOBLE" },
-                    { "data": "TRIPLE" },
-                    { "data": "G" },
-                    { "data": "SALARY" }
+                    { "data": "BA" }
                 ]
             });
         }
@@ -202,6 +194,9 @@ $(function () {
         setPitHitPitcherTable($(this).find("option:selected").data().value);
     });
 
+    $("#inputGroupSelect06").change(function (element) {
+        setPitHitHitterTable($("#inputGroupSelect05").find("option:selected").data().value,$(this).find("option:selected").data().value);
+    });
     //확인 버튼
     $("#check").click(function (element) {
         $.ajax({
@@ -255,6 +250,10 @@ $(function () {
                     .attr('data-value', element['id'])
                     .html(element['name'])
                     .appendTo($("#inputGroupSelect04"));
+                    $('<option/>')
+                        .attr('data-value', element['id'])
+                        .html(element['name'])
+                        .appendTo($("#inputGroupSelect06"));
             });
             setPitcherTeamOption(row[0]['id']);
         }
