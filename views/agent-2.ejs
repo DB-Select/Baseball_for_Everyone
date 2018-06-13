@@ -2,75 +2,24 @@
 <html>
 <head>
     <!--css load-->
-    <div id="config"></div>
-    <head>
-        <div id="config"></div>
-        <link rel="stylesheet" href="/stylesheets/style.css"> 
-        <link rel="stylesheet" href="/css/bootstrap.min.css"> 
-        <script src="/js/jquery.min.js"></script> 
-        <script src="/js/bootstrap.min.js"></script>
-        <style>
-          /*section2*/
-          #section2{
-            margin-top: 30px;
-          }
-          #section2 ul{
-            list-style:none;
-            margin:0;
-            padding:0;
-          }
-          #section2 ul li{
-            margin: 0 0 0 0;
-            padding: 0 0 0 0;
-            border : 0;
-            float: left;
-            border: 1px solid;
-            width: 10%;
-          }
-          #section2 ul li img{
-            width: 100%;
-          }
-    
-          /*section3*/
-          #section3{
-            margin-top: 30px;
-          }
-          #section3 div{
-            padding: 20px;
-          }
-          #section3 div img{
-            width: 100%;
-          }
-        </style>
-      </head>
-<!--
-     <style>
-        /*section2*/
-        #section2{
-            margin-top: 30px;
-        }
-        #section2 > div{
-            padding: 40px;
-        }
-        #section2 div:last-child{
-            padding: 0px;
-        }
-        #section2 div:last-child div{
-            margin-top: 90%;
+    <div>
+        <%- include('include/config.ejs') %>
+    </div>
 
-        }
-        @media (max-width: 768px){
-            #section2 div:last-child div{
-                margin-top: 130%;
-            }
-        }
-        @media (max-width: 575px){
-            #section2 div:last-child div{
-                margin-top: 10%;
-            }
-        }
-    </style>
--->
+    
+    <link rel="stylesheet" href="/stylesheets/style.css"> 
+    <link rel="stylesheet" href="/css/bootstrap.min.css"> 
+    <link href="/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
+    
+    <script src="/js/jquery.js"></script> 
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/agent-2.css">
+    
+    
+    <script src="/javascripts/agent-2.js"></script>
+    
 </head>
 
 <body>
@@ -86,32 +35,39 @@
 <div class="container">
     <div id="section2" class="row text-center">
         <div class="col-sm-9 border">
-            <!--Table-->
-            <table class="table">
+        
+            
+                <!--Table-->
+            <table class="display" id="pit_sal" cellspacing="0" width="100%">
 
-                <!--Table head-->
                 <thead>
-                <tr>
-                    <th>투수 Attribute</th>
-                    <th>SALARY</th>
-                </tr>
-                </thead>
-                <!--Table head-->
+                    <tr>
+                        <th>NAME</th>
+                        <th>G</th>
+                        <th>WIN</th>
+                        <th>LOSE</th>
+                        <th>SAVE</th>
+                        <th>HOLD</th>
+                        <th>ER</th>
+                        <th>IP</th>
+                        <th>CG</th>
+                        <th>H</th>
+                        <th>NP</th>
+                        <th>ERA</th>
+                        <th>DOBLE</th>
+                        <th>TRIPLE</th>
+                        <th>HR</th>
+                        <th>SALARY</th>
 
-                <!--Table body-->
-                <tbody>
-                <tr>
-                    <td>data</td>
-                    <td>data</td>
-                </tr>
-                </tbody>
+                    </tr>
+                </thead>
                 <!--Table body-->
             </table>
             <!--Table-->
         </div>
         <div class="col-sm-3 float-right text-center">
             <div class="text-right header-mg-t">
-                <a href="agent-1.html" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">다른투수선택</a>
+                <a class="btn btn-primary btn-sm active" role="button" aria-pressed="true">다른투수선택</a>
             </div>
         </div>
     </div>
@@ -124,9 +80,6 @@
     <%- include('include/footer.ejs') %>
 </footer>
 
-<!--추후 템플릿 엔진 사용 시 불러오도록 구현하세요.-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
