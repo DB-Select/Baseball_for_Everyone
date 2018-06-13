@@ -73,7 +73,22 @@ else {
         type: 'get',
         data: { 'player_id': player_id },
         success: function (row) {
-
+            $('#hit_sal').DataTable({
+                data:json.result,
+                "columns":[
+                {"data":"NAME"},
+                {"data":"PA"},
+                {"data":"AB"},
+                {"data":"DOBLE"},
+                {"data":"TRIPLE"},
+                {"data":"SB"},
+                {"data":"CS"},
+                {"data":"SH"},
+                {"data":"SF"},
+                {"data":"SALARY"},
+                {"data":"AVG"}
+                ]
+            });
         }
     })
 }

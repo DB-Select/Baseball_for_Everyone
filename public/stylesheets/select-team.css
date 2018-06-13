@@ -22,10 +22,10 @@
 }
 
 #team .ui-selecting {
-    background: pink;
+    background:skyblue;
 }
 
 #team .ui-selected {
-    background: hotpink;
+    background: rgb(0, 147, 206);
 
 }
