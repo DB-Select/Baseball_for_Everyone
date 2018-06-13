@@ -1,5 +1,6 @@
 #section2{
     margin-top: 30px;
+    margin: 0;
     }
     #section2 ul{
     list-style:none;
@@ -21,19 +22,17 @@
     /*section3*/
     #section3{
     margin-top: 30px;
+    width: 1300px;
+    margin: 0 auto;
     }
     #section3 div{
     padding: 20px;
+    width: 1300px;
+    margin: 0 auto;
     }
     #section3 div img{
     width: 100%;
+    
     }
 
-    .container {
-        width: 500%;
-        
-        margin: 0 auto;
-        
-        padding: 10px;
-        
-        }
+  
