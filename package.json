@@ -15,7 +15,7 @@
     "font-awesome": "^4.7.0",
     "http-errors": "~1.6.2",
     "jexcel": "^1.5.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "jquery-ui-dist": "^1.12.1",
     "morgan": "~1.9.0",
     "mysql": "^2.15.0",
